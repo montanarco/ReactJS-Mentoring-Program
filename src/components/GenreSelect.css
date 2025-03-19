@@ -1,0 +1,23 @@
+.button-container { 
+    display: "flex"; 
+    justify-content: "center";
+    margin: 1em auto 2em;
+}
+
+.genre-button {
+    height: 40px;
+    padding: 0 15px;
+    cursor: pointer;
+    outline: none;
+    background-color: rgb(43, 42, 42);
+    color: white; 
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    opacity: 0.2;
+    border-radius: 0;
+}
+
+.genre-button:hover {
+    opacity: 0.8;
+    border-color: rgb(234, 75, 75);
+}
