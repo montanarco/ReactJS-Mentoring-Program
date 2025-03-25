@@ -18,14 +18,14 @@ class GenreSelect extends React.Component<GenreSelectProps> {
   };
 
   render() {
-    const { genres, selectedGenre } = this.props;
+    const { genres = [], selectedGenre } = this.props;
 
     return (
         <div className= {"button-container"} >
           {genres.map((genre) => (
             <button
-              className={"genre-button"} 
-              key={genre} // Use genre as the unique key
+            className={`genre-button ${selectedGenre === genre ? "selected" : ""}`}
+              key={genre} 
               onClick={() => this.handleGenreClick(genre)} 
             >
               {genre} 

@@ -4,8 +4,12 @@ interface CounterState {
   count: number;
 }
 
-class Counter extends React.Component<{}, CounterState> {
-  constructor(props: { initialValue?: number }) {
+interface CounterProps {
+  initialValue: number;
+}
+
+class Counter extends React.Component<CounterProps, CounterState> {
+  constructor(props: CounterProps) {
     super(props);
     this.state = {
       count: props.initialValue || 0, 

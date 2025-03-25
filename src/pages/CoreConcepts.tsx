@@ -1,7 +1,7 @@
 import React from "react";
-import Counter from "../components/Counter";
-import SearchForm from "../components/SearchForm";
-import GenreSelect from "../components/GenreSelect";
+import Counter from "../components/Counter/Counter";
+import SearchForm from "../components/SearchForm/SearchForm";
+import GenreSelect from "../components/GenreSelect/GenreSelect";
 
 export default function CoreConcepts (){
 
