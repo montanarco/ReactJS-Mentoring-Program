@@ -58,6 +58,10 @@ this needs a node version 18 or above it was builded whit v22.14.0
 
 `nvm use 22.14.0`
 
+run test
+
+`npm test`
+
 run it locally, open in port 5173:  http://localhost:5173/
 
 `npm run dev`
