@@ -65,3 +65,7 @@ run test
 run it locally, open in port 5173:  http://localhost:5173/
 
 `npm run dev`
+
+E2E testing
+
+`npx cypress open`
