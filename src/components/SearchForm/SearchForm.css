@@ -38,7 +38,7 @@
 
   .search-input:hover,
   .search-input:focus {
-    border-color: #fff; /* Highlight border when hovering or focusing */
+    border-color: rgb(234, 75, 75);
     background: rgba(47, 47, 47, 0.8); /* Optional: darken background slightly */
   }
   

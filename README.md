@@ -69,3 +69,11 @@ run it locally, open in port 5173:  http://localhost:5173/
 E2E testing
 
 `npx cypress open`
+
+Story Book
+
+`npm create storybook@latest`
+
+`npm run storybook`
+
+the storybook sandbox runs on: http://localhost:6006/?path=/onboarding

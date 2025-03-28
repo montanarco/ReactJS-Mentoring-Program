@@ -1,19 +1,26 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  "stories": [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+  framework: '@storybook/react-vite',
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
   ],
-  "addons": [
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@chromatic-com/storybook",
-    "@storybook/experimental-addon-test"
-  ],
-  "framework": {
-    "name": "@storybook/react-vite",
-    "options": {}
-  }
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      tsconfigPath: './apps/dawn-ui/tsconfig.storybook.json'
+    },
+  },
+  viteFinal: async (config) => {
+    config.esbuild = {
+      loader: 'tsx',
+      include: /\.tsx?$/,
+    };
+    return config;
+  },
 };
+
 export default config;
