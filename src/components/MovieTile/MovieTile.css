@@ -3,11 +3,10 @@
     flex-direction: column;
     font-family: Arial, sans-serif;
     align-items: flex-start;
-    border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
     width: 300px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 5px 5px rgba(139, 96, 96, 0.1);
   }
   
   .movie-image-wrapper {
@@ -35,15 +34,15 @@
     position: absolute;
     top: 20px;
     right: 5px;
-    background: white;
+    background:  rgba(47, 47, 47, 0.6);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
     z-index: 10;
   }
   
   .menu-item {
     display: block;
-    padding: 8px 12px;
+    padding: 8px 20px 12px 20px;
+    color: white;
     cursor: pointer;
     font-size: 14px;
     border: none;
@@ -51,11 +50,12 @@
   }
   
   .menu-item:hover {
-    background-color: #f0f0f0;
+    background-color: rgb(234, 75, 75);
   }
   
   .movie-details {
     margin-top: 10px;
+    width: 100%; 
   }
   
   .movie-name {

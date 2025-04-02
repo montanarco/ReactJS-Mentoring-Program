@@ -11,15 +11,15 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      tsconfigPath: './apps/dawn-ui/tsconfig.storybook.json'
+      tsconfigPath: './tsconfig.json',
     },
   },
-  viteFinal: async (config) => {
-    config.esbuild = {
-      loader: 'tsx',
-      include: /\.tsx?$/,
+  viteFinal: async (config, { configType }) => {
+    const storybookViteConfig = require('./vite.storybook.config.js'); // Import the .js file
+    return {
+      ...storybookViteConfig,
+      ...config,
     };
-    return config;
   },
 };
 

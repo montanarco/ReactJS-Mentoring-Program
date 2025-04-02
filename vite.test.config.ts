@@ -1,7 +1,5 @@
-import { defineConfig, UserConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-console.log('Vite Config Loaded');
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
@@ -14,5 +12,5 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/setup.js', 
-  }
-} as UserConfig)
+  },
+});
