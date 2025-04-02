@@ -5,7 +5,7 @@ import GenreSelect from "../components/GenreSelect/GenreSelect";
 
 export default function CoreConcepts (){
 
-  const genres = ["Action", "Comedy", "Drama", "Horror", "Sci-Fi"];
+  const genres = ["Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Thriller", "Western", "Animation", "Documentary", "Romance"];
   const [selectedGenre, setSelectedGenre] = React.useState("Action");
 
   function handleGenreSelect(genre: string) {
