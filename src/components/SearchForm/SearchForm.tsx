@@ -4,6 +4,8 @@ import "./SearchForm.css";
 interface SearchFormProps {
   searchCriteria: string;
   searchFunction: (searchCriteria: string) => void;
+  placeholder?: string;
+  variant?: "primary" | "secondary";
 }
 
 interface SearchFormState {
@@ -35,17 +37,21 @@ class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
   }
 
   render() {
+
+    const { placeholder = "Search...", variant = "primary" } = this.props;
+    const containerClass = `search-container ${variant}`;
+    const inputClass = `search-input ${variant}`;
+    const buttonClass = `search-button ${variant}`;
+
     return (
-      <div className="search-container">
-        <label htmlFor="search" className="search-label">
-          Find Your Movie
-        </label>
+      <div className={containerClass}>
+        <label className={`search-label ${variant}`}>Search:</label>
         <div className="search-input-group">
           <input
             type="text"
             id="search"
-            className="search-input"
-            placeholder="What do you want to watch?"
+            className={inputClass}
+            placeholder={placeholder}
             value={this.state.searchWord}
             onChange={this.handleInputChange}
             onKeyDown={this.handleKeyDown} 
@@ -53,7 +59,7 @@ class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
           />
           <button
             type="submit"
-            className="search-button"
+            className={buttonClass}
             onClick={this.handleSubmit} // Trigger when button is clicked
           >
             Search

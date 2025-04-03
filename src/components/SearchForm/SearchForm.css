@@ -1,71 +1,137 @@
-/* Container for the search form */
-.search-container {
-    display: flex;
-    flex-direction: column; /* Stacks label and input vertically */
-    font-family: Arial, sans-serif;
-    align-items: flex-start;
-  }
-  
-  /* Label styling */
-  .search-label {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px; /* Space between label and input */
-    color: #fff; /* White text */
-  }
-  
-  /* Grouping the input and button next to each other */
-  .search-input-group {
-    display: flex;
-    font-family: 'Trebuchet MS', sans-serif;
-    width: 100%; /* Ensure input and button span the full width */
-    align-items: center;
-  }
-  
-  /* Text input styles */
-  .search-input {
-    flex: 1; /* Take as much space as possible */
-    height: 40px;
-    padding: 5px 10px;
-    border: 2px solid transparent;
-    outline: none;
-    border-radius: 3px 0 0 3px; /* Left-rounded corners only */
-    background: rgba(47, 47, 47, 0.6); /* Dark gray with 60% opacity */
-    color: #fff; /* White text */
-    font-size: 14px;
-  }
+/* Primary Variant */
 
-  .search-input:hover,
-  .search-input:focus {
-    border-color: #fff; /* Highlight border when hovering or focusing */
-    background: rgba(47, 47, 47, 0.8); /* Optional: darken background slightly */
-  }
-  
-  /* Placeholder styles */
-  .search-input::placeholder {
-    color: gray;
-  }
-  
-  /* Button styles */
-  .search-button {
-    height: 40px;
-    padding: 0 15px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background: rgb(234, 75, 75); /* Light red background */
-    color: white; /* White text */
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    border-radius: 0 3px 3px 0; /* Right-rounded corners only */
-  }
-  
-  /* Add hover/active states */
-  .search-button:hover {
-    background: crimson; /* Darker red on hover */
-  }
-  
-  .search-button:active {
-    background: firebrick; /* Even darker red on click */
-  }
+/* Container */
+.search-container.primary {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  align-items: flex-start;
+}
+
+/* Label */
+.search-label.primary {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #000000; /* White text */
+}
+
+/* Input Group */
+.search-input-group {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+/* Input */
+.search-input.primary {
+  flex: 1;
+  height: 40px;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 3px 0 0 3px; /* Left-rounded corners only */
+  background: rgba(47, 47, 47, 0.6);
+  color: #fff; /* White text */
+  font-size: 14px;
+}
+
+.search-input.primary:hover,
+.search-input.primary:focus {
+  border-color: rgb(234, 75, 75);
+  background: rgba(47, 47, 47, 0.8);
+}
+
+.search-input.primary::placeholder {
+  color: rgb(211, 211, 211);
+}
+
+/* Button */
+.search-button.primary {
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  outline: none;
+  background: rgb(234, 75, 75);
+  color: white;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  border-radius: 0 3px 3px 0; /* Right-rounded corners only */
+}
+
+.search-button.primary:hover {
+  background: crimson; /* Darker red on hover */
+}
+
+.search-button.primary:active {
+  background: firebrick; /* Even darker red on click */
+}
+
+/* Secondary Variant */
+
+/* Container */
+.search-container.secondary {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  align-items: flex-start;
+}
+
+/* Label */
+.search-label.secondary {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgb(52, 5, 152); /* Secondary label styling */
+}
+
+/* Input */
+.search-input.secondary {
+  flex: 1;
+  height: 40px;
+  padding: 5px 10px;
+  border: 2px solid rgb(52, 5, 152);
+  outline: none;
+  border-radius: 4px;
+  background-color: rgb(239, 234, 234);
+  color: rgb(52, 5, 152);
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+}
+
+.search-input.secondary:hover,
+.search-input.secondary:focus {
+  border-color: rgb(52, 5, 152);
+  background-color: rgb(150, 150, 150); /* Optional: light gray on hover */
+}
+
+.search-input.secondary::placeholder {
+  color: rgb(52, 5, 152);
+}
+
+/* Button */
+.search-button.secondary {
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(239, 234, 234);
+  border-color: rgb(52, 5, 152);
+  color: rgb(52, 5, 152);
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.search-button.secondary:hover {
+  opacity: 0.9;
+  background-color: rgb(150, 150, 150);
+}
+
+.search-button.secondary:active {
+  background-color: rgb(150, 150, 150);
+  color: white;
+  font-weight: bold;
+}

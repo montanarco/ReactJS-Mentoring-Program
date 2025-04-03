@@ -2,9 +2,11 @@ import React from "react";
 import "./GenreSelect.css";
 
 interface GenreSelectProps {
-  genres: string[]; 
-  selectedGenre: string; 
-  onSelect: (genre: string) => void; 
+  genres: string[];
+  selectedGenre: string;
+  onSelect: (genre: string) => void;
+  layout?: "flex" | "grid"; // New prop for layout customization
+  variant?: "primary" | "secondary"; // New prop for style variant customization
 }
 
 class GenreSelect extends React.Component<GenreSelectProps> {
@@ -14,26 +16,28 @@ class GenreSelect extends React.Component<GenreSelectProps> {
 
   handleGenreClick = (genre: string) => {
     const { onSelect } = this.props;
-    onSelect(genre); 
+    onSelect(genre);
   };
 
   render() {
-    const { genres = [], selectedGenre } = this.props;
+    const { genres = [], selectedGenre, layout = "flex", variant = "primary" } = this.props;
+
+    const containerClass = `button-container ${layout}`;
+    const buttonClassBase = `genre-button ${variant}`;
 
     return (
-        <div className= {"button-container"} >
-          {genres.map((genre) => (
-            <button
-            className={`genre-button ${selectedGenre === genre ? "selected" : ""}`}
-              key={genre} 
-              onClick={() => this.handleGenreClick(genre)} 
-            >
-              {genre} 
-            </button>
-          ))}
-        </div>
-      );
-
+      <div className={containerClass}>
+        {genres.map((genre) => (
+          <button
+            className={`${buttonClassBase} ${selectedGenre === genre ? "selected" : ""}`}
+            key={genre}
+            onClick={() => this.handleGenreClick(genre)}
+          >
+            {genre}
+          </button>
+        ))}
+      </div>
+    );
   }
 }
 
