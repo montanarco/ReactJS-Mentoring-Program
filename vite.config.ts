@@ -1,9 +1,8 @@
-import { defineConfig, UserConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig as defineVitestConfig } from 'vitest/config';
 
-console.log('Vite Config Loaded');
-
-export default defineConfig({
+export default defineVitestConfig({
   plugins: [react()],
   esbuild: {
     loader: 'tsx',
@@ -11,8 +10,8 @@ export default defineConfig({
     target: 'esnext',
   },
   test: {
-    environment: 'jsdom',
-    globals: true,
+    environment: 'jsdom', 
+    globals: true, 
     setupFiles: './src/setup.js', 
-  }
-} as UserConfig)
+  },
+});

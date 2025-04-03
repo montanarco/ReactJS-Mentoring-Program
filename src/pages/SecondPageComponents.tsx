@@ -1,10 +1,10 @@
-import React from "react"; 
+import React, { useState } from "react";
 import MovieGrid from "../components/MovieGrid/MovieGrid"; 
 import MovieDetails from "../components/MovieDetails/MovieDetails";
+import SortControl from "../components/SortControl/SortControl";
 
-class SecondPageComponents extends React.Component {
-
-  movies = [
+const SecondPageComponents = () => {
+  const movies = [
     {
       imageUrl: "/src/assets/image_1.jpg",
       name: "Movie 1",
@@ -77,7 +77,7 @@ class SecondPageComponents extends React.Component {
     },
   ];
 
-  movie1 = {
+  const movieDetails = {
     imageUrl: "/src/assets/inception.png", 
     title: "Inception",
     releaseYear: "2010",
@@ -88,19 +88,31 @@ class SecondPageComponents extends React.Component {
       "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
   };
 
-  render() {
+  const [sortBy, setSortBy] = useState("Release Date"); // Current selected sort option
+
+  const handleSortChange = (selected: string) => {
+    console.log(`Selected sorting option: ${selected}`);
+    setSortBy(selected);
+  };
+
     return (
       <>
-      <MovieDetails {...this.movie1} />
-    
+      <MovieDetails {...movieDetails} />
+
+      <SortControl
+        selectedValue={sortBy}
+        onChange={handleSortChange}
+        variant="primary"
+      />
+      
       <MovieGrid
-        movies={this.movies} 
+        movies={movies} 
         columns={3} 
         itemsPerPageOptions={[3, 6, 9, 12]} 
       />
       </>
     );
-  }
+  
 }
 
 export default SecondPageComponents;
