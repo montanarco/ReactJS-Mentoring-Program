@@ -10,13 +10,13 @@ interface MovieGridProps {
     director: string;
     genres: string[];
   }>;
-  columns: number; // Number of columns per row
-  itemsPerPageOptions: number[]; // Dropdown options for items per page
+  columns: number; 
+  itemsPerPageOptions: number[]; 
 }
 
 interface MovieGridState {
   currentPage: number;
-  itemsPerPage: number; // Selected items per page
+  itemsPerPage: number; 
 }
 
 class MovieGrid extends React.Component<MovieGridProps, MovieGridState> {
@@ -24,7 +24,7 @@ class MovieGrid extends React.Component<MovieGridProps, MovieGridState> {
     super(props);
     this.state = {
       currentPage: 1,
-      itemsPerPage: props.itemsPerPageOptions[0] || 10, // Default items per page
+      itemsPerPage: props.itemsPerPageOptions[0] || 10,
     };
   }
 
@@ -41,7 +41,7 @@ class MovieGrid extends React.Component<MovieGridProps, MovieGridState> {
   handleItemsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     this.setState({
       itemsPerPage: Number(event.target.value),
-      currentPage: 1, // Reset to the first page
+      currentPage: 1, 
     });
   };
 
@@ -49,11 +49,9 @@ class MovieGrid extends React.Component<MovieGridProps, MovieGridState> {
     const { movies, columns, itemsPerPageOptions } = this.props;
     const { currentPage, itemsPerPage } = this.state;
 
-    // Slice movies based on pagination
     const startIndex = (currentPage - 1) * itemsPerPage;
     const paginatedMovies = movies.slice(startIndex, startIndex + itemsPerPage);
 
-    // Render rows
     const rows = [];
     for (let i = 0; i < paginatedMovies.length; i += columns) {
       const rowMovies = paginatedMovies.slice(i, i + columns);

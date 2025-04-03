@@ -1,5 +1,6 @@
 import React from "react"; 
 import MovieGrid from "../components/MovieGrid/MovieGrid"; 
+import MovieDetails from "../components/MovieDetails/MovieDetails";
 
 class SecondPageComponents extends React.Component {
 
@@ -76,14 +77,28 @@ class SecondPageComponents extends React.Component {
     },
   ];
 
+  movie1 = {
+    imageUrl: "/src/assets/inception.png", 
+    title: "Inception",
+    releaseYear: "2010",
+    rating: 9.0,
+    duration: "148 minutes",
+    genres: ["Action", "Drama", "Sci-Fi"],
+    description: 
+      "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+  };
+
   render() {
     return (
-     
+      <>
+      <MovieDetails {...this.movie1} />
+    
       <MovieGrid
         movies={this.movies} 
         columns={3} 
         itemsPerPageOptions={[3, 6, 9, 12]} 
       />
+      </>
     );
   }
 }
