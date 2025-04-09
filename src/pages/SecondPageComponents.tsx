@@ -4,6 +4,7 @@ import MovieDetails from "../components/MovieDetails/MovieDetails";
 import SortControl from "../components/SortControl/SortControl";
 import Dialog from "../components/Dialog/Dialog";
 import MovieForm, { Movie } from "../components/MovieForm/MovieForm";
+import FormModal from "../components/FormModal/FormModal";
 
 const SecondPageComponents = () => {
   const movies = [
@@ -182,26 +183,26 @@ const SecondPageComponents = () => {
       </button>
 
       {isNewMovie && (
-        <Dialog title="Add Movie" onClose={handleCloseNewMovie}>
+        <FormModal title="Add Movie" onClose={handleCloseNewMovie}> 
          <MovieForm
           movie={null} 
           onSubmit={handleFormSubmit}
           onCancel={handleFormCancel}
         />
-        </Dialog>
+        </FormModal>
       )}
       
       <button className="open-dialog-button" onClick={handleOpenEditMovie}>
             show Edit Movie
       </button>
       {isEditMovie && (
-        <Dialog title="Edit Movie" onClose={handleCloseEditMovie}>
+        <FormModal title="Edit Movie" onClose={handleCloseEditMovie}> 
          <MovieForm
           movie={movieFormDummy} 
           onSubmit={handleFormSubmit}
           onCancel={handleFormCancel}
         />
-        </Dialog>
+        </FormModal>
       )}
       </>
     );

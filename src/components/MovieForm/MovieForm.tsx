@@ -63,17 +63,7 @@ class MovieForm extends Component<MovieFormProps, MovieFormState> {
         return (
             <div className="movie-form-container">
                 <form className="movie-form" onSubmit={this.handleFormSubmit}>
-                    <button
-                        className="dialog-close-button"
-                        onClick={() => onCancel()}
-                        aria-label="Close dialog"
-                    >
-                        X
-                    </button>
-                    <h3>{this.props.movie ? "Edit Movie" : "Add Movie"}</h3>
-
                     <div className="form-columns">
-                        {/* Left Column Fields */}
                         <div className="form-column">
                             <div className="form-field">
                                 <label htmlFor="title">Title</label>
@@ -122,7 +112,6 @@ class MovieForm extends Component<MovieFormProps, MovieFormState> {
                             </div>
                         </div>
 
-                        {/* Right Column Fields */}
                         <div className="form-column">
                             <div className="form-field">
                                 <label htmlFor="releaseYear">Release Year</label>
@@ -160,7 +149,6 @@ class MovieForm extends Component<MovieFormProps, MovieFormState> {
                         </div>
                     </div>
 
-                    {/* Full-Width Overview Field */}
                     <div className="form-field overview-field">
                         <label htmlFor="description">Overview</label>
                         <textarea
@@ -172,7 +160,6 @@ class MovieForm extends Component<MovieFormProps, MovieFormState> {
                         ></textarea>
                     </div>
 
-                    {/* Buttons */}
                     <div className="form-buttons">
                         <button type="button" className={`button cancel ${buttonClasses}`} onClick={onCancel}>
                             Cancel
