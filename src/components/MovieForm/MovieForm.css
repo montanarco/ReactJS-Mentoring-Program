@@ -1,0 +1,146 @@
+/* General styles */
+.movie-form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #232323;
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff;
+  }
+  
+  .movie-form h3 {
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  /* Column Layout */
+  .form-columns {
+    display: flex;
+    gap: 40px; /* Add spacing between columns */
+  }
+  
+  .form-column:first-child {
+    flex: 3; /* First column is wider */
+  }
+  
+  .form-column:last-child {
+    flex: 1; /* Second column is narrower */
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-field label {
+    text-align: left;
+    color: #f65261;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    background: #555555;
+    color: #ffffff;
+  }
+
+  .form-field select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    background: #555555;
+    color: #ffffff;
+    appearance: auto; /* Ensure consistent dropdown styles across all browsers */
+  }
+  
+  option {
+    background: #555555;
+    color: #ffffff;
+  } 
+  
+  select:focus {
+    border-color: #f65261; /* Highlight border in red */
+    outline: none; /* Remove the default browser outline */
+    box-shadow: 0 0 4px #f65261; /* Optional: Add a subtle red glow */
+  }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+    border-color: #f65261; /* Highlight border in red */
+    outline: none; /* Remove the default browser outline */
+    box-shadow: 0 0 4px #f65261; /* Optional: Add a subtle red glow */
+  }
+  
+
+  .dialog-close-button {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    float: right;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .overview-field {
+    width: 100%;
+  }
+  
+  .overview-field textarea {
+    height: 80px;
+  }
+  
+  /* Buttons */
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .button-primary {
+    background: #f65261;
+    color: #ffffff;
+  }
+  
+  .button-primary.cancel {
+    background: #232323;
+    border-color: #f65261;
+    color: #f65261;
+  }
+  
+  .button-secondary {
+    background: rgb(239, 234, 234);
+    color: rgb(52, 5, 152);
+    border-color: rgb(52, 5, 152);
+  }
+  
+  .button-secondary:hover {
+    background: rgb(150, 150, 150);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .form-columns {
+      flex-direction: column; /* Stacks the columns on smaller screens */
+    }
+  }
+
+  

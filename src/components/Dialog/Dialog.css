@@ -1,0 +1,140 @@
+/* Dialog Wrapper */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .dialog-overlay.primary {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .dialog-overlay.secondary {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Dialog Styles */
+  .dialog {
+    width: 400px;
+    max-width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dialog.primary {
+    background: #232323;
+    border-radius: 3px;
+    border: solid 2px #f65261;
+  }
+  
+  .dialog.secondary {
+    background: #f1f1f1;
+    border-radius: 6px;
+    border: solid 2px rgb(52, 5, 152);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Icon Section */
+  .dialog-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  .dialog-icon.primary {
+    background-color: #232323;
+  }
+  
+  .dialog-icon.secondary {
+    background-color: #f1f1f1;
+  }
+  
+  .red-checkmark {
+    font-size: 72px;
+    font-weight: bold;
+  }
+  
+  .red-checkmark.primary {
+    color: #f65261;
+  }
+  
+  .red-checkmark.secondary {
+    color: rgb(52, 5, 152);
+  }
+  
+  /* Header Styles */
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .dialog-header.primary {
+    color: #f65261;
+  }
+  
+  .dialog-header.secondary {
+    color: rgb(52, 5, 152);
+  }
+  
+  .dialog-title {
+    margin: 0;
+  }
+  
+  .dialog-title.primary {
+    color: #f65261;
+  }
+  
+  .dialog-title.secondary {
+    color: rgb(52, 5, 152);
+  }
+  
+  .dialog-close-button {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    float: right;
+  }
+  
+  .dialog-close-button.primary {
+    color: #fff;
+  }
+  
+  .dialog-close-button.primary:hover {
+    color: #e74c3c;
+  }
+  
+  .dialog-close-button.secondary {
+    color: rgb(52, 5, 152);
+  }
+  
+  .dialog-close-button.secondary:hover {
+    color: rgb(150, 150, 150);
+  }
+  
+  /* Body Styles */
+  .dialog-body {
+    padding: 15px;
+  }
+  
+  .dialog-body.primary {
+    color: #fff;
+  }
+  
+  .dialog-body.secondary {
+    color: #333;
+  }

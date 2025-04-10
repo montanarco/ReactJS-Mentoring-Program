@@ -1,3 +1,4 @@
+import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
@@ -18,6 +19,12 @@ const Layout = () => {
           */}
           <li>
             <Link to="/core-concepts">Core Concepts</Link>
+          </li>
+          <li>
+            <Link to="/second-page">Second Page Components</Link>
+          </li>
+          <li>
+            <Link to="/apply-composition">Apply composition</Link>
           </li>
           <li>
             <Link to="/testing">Testing</Link>
