@@ -44,25 +44,32 @@
 
 /* Header Section */
 .modal-header {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    display: flex; /* Use flexbox to align child elements */
+    flex-direction: column; /* Ensure content stacks vertically if needed */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
     padding: 15px;
     font-size: 18px;
     font-weight: bold;
+    text-align: center; /* Ensure any child text is centered */
+    width: 100%; /* Takes full width */
 }
 
+/* Primary Variant */
 .modal-header.primary {
     color: #f65261;
 }
 
+/* Secondary Variant */
 .modal-header.secondary {
     color: rgb(52, 5, 152);
 }
 
+/* Modal Title */
 .modal-title {
-    margin: 0;
+    margin: 0; /* Remove unnecessary spacing */
+    text-align: center; /* Align text inside its container */
+    width: 100%; /* Force the title to span the entire header width */
 }
 
 .modal-title.primary {
@@ -73,14 +80,10 @@
     color: rgb(52, 5, 152);
 }
 
-/* Close Button */
 .modal-close-button {
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    background: none;
-    border: none;
-    float: right;
+    position: absolute; 
+    top: 10px;
+    right: 10px; 
 }
 
 .modal-close-button.primary {

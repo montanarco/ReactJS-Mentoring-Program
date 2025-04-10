@@ -50,6 +50,26 @@
     color: #ffffff;
   }
 
+  .form-field select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    background: #555555;
+    color: #ffffff;
+    appearance: auto; /* Ensure consistent dropdown styles across all browsers */
+  }
+  
+  option {
+    background: #555555;
+    color: #ffffff;
+  } 
+  
+  select:focus {
+    border-color: #f65261; /* Highlight border in red */
+    outline: none; /* Remove the default browser outline */
+    box-shadow: 0 0 4px #f65261; /* Optional: Add a subtle red glow */
+  }
+
     input:focus,
     textarea:focus,
     select:focus {
@@ -122,3 +142,5 @@
       flex-direction: column; /* Stacks the columns on smaller screens */
     }
   }
+
+  

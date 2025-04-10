@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchForm.css";
 
 interface SearchFormProps {
@@ -8,66 +8,56 @@ interface SearchFormProps {
   variant?: "primary" | "secondary";
 }
 
-interface SearchFormState {
-  searchWord: string;
-}
+const SearchForm: React.FC<SearchFormProps> = ({
+  searchCriteria,
+  searchFunction,
+  placeholder = "Search...",
+  variant = "primary",
+}) => {
+  const [searchWord, setSearchWord] = useState<string>(searchCriteria || "");
 
-class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
-  constructor(props: SearchFormProps) {
-    super(props);
-    this.state = {
-      searchWord: props.searchCriteria || "", 
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-  }
-
-  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ searchWord: event.target.value }); 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchWord(event.target.value);
   };
 
-  handleSubmit = () => {
-    this.props.searchFunction(this.state.searchWord); 
+  const handleSubmit = () => {
+    searchFunction(searchWord);
   };
 
-  handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>): void {
-    if (event.key === 'Enter') {
-      this.handleSubmit();
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSubmit();
     }
-  }
+  };
 
-  render() {
+  const containerClass = `search-container ${variant}`;
+  const inputClass = `search-input ${variant}`;
+  const buttonClass = `search-button ${variant}`;
 
-    const { placeholder = "Search...", variant = "primary" } = this.props;
-    const containerClass = `search-container ${variant}`;
-    const inputClass = `search-input ${variant}`;
-    const buttonClass = `search-button ${variant}`;
-
-    return (
-      <div className={containerClass}>
-        <label className={`search-label ${variant}`}>Search:</label>
-        <div className="search-input-group">
-          <input
-            type="text"
-            id="search"
-            className={inputClass}
-            placeholder={placeholder}
-            value={this.state.searchWord}
-            onChange={this.handleInputChange}
-            onKeyDown={this.handleKeyDown} 
-            onFocus={this.handleSubmit}
-          />
-          <button
-            type="submit"
-            className={buttonClass}
-            onClick={this.handleSubmit} // Trigger when button is clicked
-          >
-            Search
-          </button>
-        </div>
+  return (
+    <div className={containerClass}>
+      <label className={`search-label ${variant}`}>Search:</label>
+      <div className="search-input-group">
+        <input
+          type="text"
+          id="search"
+          className={inputClass}
+          placeholder={placeholder}
+          value={searchWord}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          onFocus={handleSubmit}
+        />
+        <button
+          type="submit"
+          className={buttonClass}
+          onClick={handleSubmit} // Trigger when button is clicked
+        >
+          Search
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default SearchForm;

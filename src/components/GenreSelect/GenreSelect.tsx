@@ -9,36 +9,33 @@ interface GenreSelectProps {
   variant?: "primary" | "secondary"; // New prop for style variant customization
 }
 
-class GenreSelect extends React.Component<GenreSelectProps> {
-  constructor(props: GenreSelectProps) {
-    super(props);
-  }
-
-  handleGenreClick = (genre: string) => {
-    const { onSelect } = this.props;
+const GenreSelect: React.FC<GenreSelectProps> = ({
+  genres = [],
+  selectedGenre,
+  onSelect,
+  layout = "flex",
+  variant = "primary",
+}) => {
+  const handleGenreClick = (genre: string) => {
     onSelect(genre);
   };
 
-  render() {
-    const { genres = [], selectedGenre, layout = "flex", variant = "primary" } = this.props;
+  const containerClass = `button-container ${layout}`;
+  const buttonClassBase = `genre-button ${variant}`;
 
-    const containerClass = `button-container ${layout}`;
-    const buttonClassBase = `genre-button ${variant}`;
-
-    return (
-      <div className={containerClass}>
-        {genres.map((genre) => (
-          <button
-            className={`${buttonClassBase} ${selectedGenre === genre ? "selected" : ""}`}
-            key={genre}
-            onClick={() => this.handleGenreClick(genre)}
-          >
-            {genre}
-          </button>
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={containerClass}>
+      {genres.map((genre) => (
+        <button
+          className={`${buttonClassBase} ${selectedGenre === genre ? "selected" : ""}`}
+          key={genre}
+          onClick={() => handleGenreClick(genre)}
+        >
+          {genre}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 export default GenreSelect;
