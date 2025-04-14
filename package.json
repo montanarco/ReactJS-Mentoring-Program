@@ -2,14 +2,14 @@
   "name": "react-mp-pratices",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "cy:open": "cypress open",
     "test": "vitest --config vite.test.config.ts",
     "vitest": "vitest --config vitest.config.ts",
-    "lint": "eslint .",
+    "lint": "eslint ./src",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

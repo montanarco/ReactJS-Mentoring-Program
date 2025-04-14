@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import MovieTile from "../MovieTile/MovieTile";
+import { Movie } from "../MovieForm/MovieForm";
 import "./MovieGrid.css";
 
 interface MovieGridProps {
-  movies: Array<{
-    imageUrl: string;
-    name: string;
-    releaseYear: number;
-    director: string;
-    genres: string[];
-  }>;
+  movies: Array<Movie>;
+  onMovieSelected: (movie: Movie) => void;
   columns: number; 
   itemsPerPageOptions: number[]; 
 }
 
-const MovieGrid: React.FC<MovieGridProps> = ({ movies, columns, itemsPerPageOptions }) => {
+const MovieGrid: React.FC<MovieGridProps> = ({ movies, onMovieSelected, columns, itemsPerPageOptions }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[0] || 10);
 
@@ -42,7 +38,7 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, columns, itemsPerPageOpti
     rows.push(
       <div className="movie-grid-row" key={`row-${i}`}>
         {rowMovies.map((movie, index) => (
-          <MovieTile key={`movie-${index}`} movie={movie} />
+          <MovieTile key={`movie-${index}`} movie={movie} onClick={() => onMovieSelected(movie)}/>
         ))}
       </div>
     );

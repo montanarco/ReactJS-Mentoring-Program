@@ -4,6 +4,7 @@ import "./SearchForm.css";
 interface SearchFormProps {
   searchCriteria: string;
   searchFunction: (searchCriteria: string) => void;
+  addMovieFunction: () => void;
   placeholder?: string;
   variant?: "primary" | "secondary";
 }
@@ -11,6 +12,7 @@ interface SearchFormProps {
 const SearchForm: React.FC<SearchFormProps> = ({
   searchCriteria,
   searchFunction,
+  addMovieFunction,
   placeholder = "Search...",
   variant = "primary",
 }) => {
@@ -36,7 +38,12 @@ const SearchForm: React.FC<SearchFormProps> = ({
 
   return (
     <div className={containerClass}>
-      <label className={`search-label ${variant}`}>Search:</label>
+      <div className="top-right-button-container">
+        <button className="top-right-button" onClick={addMovieFunction}>
+          Add Movie
+        </button>
+      </div>
+      <label className={`search-label ${variant}`}>Find Your Movie:</label>
       <div className="search-input-group">
         <input
           type="text"
@@ -51,7 +58,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
         <button
           type="submit"
           className={buttonClass}
-          onClick={handleSubmit} // Trigger when button is clicked
+          onClick={handleSubmit}
         >
           Search
         </button>

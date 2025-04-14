@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import "./MovieTile.css";
+import { Movie } from "../MovieForm/MovieForm"; 
 
 interface MovieTileProps {
-  movie: {
-    imageUrl: string;
-    name: string;
-    releaseYear: number;
-    director: string;
-    genres: string[];
-  };
+  movie: Movie; // Movie object containing details
   onClick?: () => void; // Callback for click events
   onEdit?: () => void; // Callback for edit menu
   onDelete?: () => void; // Callback for delete menu
@@ -31,10 +26,14 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick, onEdit, onDelete 
     setShowContextMenu(false);
   };
 
+  const handleClick = () => {
+    if (onClick) onClick();
+  };
+
   return (
-    <div className="movie-tile" onClick={onClick}>
+    <div className="movie-tile" >
       <div className="movie-image-wrapper">
-        <img className="movie-image" src={movie.imageUrl} alt={movie.name} />
+        <img className="movie-image" src={movie.imageUrl} alt={movie.title} />
         <button className="menu-button" onClick={toggleContextMenu}>
           ⋮
         </button>
@@ -49,8 +48,8 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick, onEdit, onDelete 
           </div>
         )}
       </div>
-      <div className="movie-details">
-        <span className="movie-name">{movie.name}</span>
+      <div className="movie-details" onClick={handleClick}>
+        <span className="movie-name">{movie.title}</span>
         <div className="movie-meta">
           <span className="movie-genres">{movie.genres.join(", ")}</span>
           <div className="movie-right-meta">

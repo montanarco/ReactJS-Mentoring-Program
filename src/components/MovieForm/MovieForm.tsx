@@ -14,7 +14,7 @@ export interface Movie {
 
 export interface MovieFormProps {
     movie: Movie | null;
-    onSubmit: (movie: Movie | null) => void;
+    onSubmit: (movie: Movie) => void;
     onCancel: () => void;
     variant?: "primary" | "secondary";
 }

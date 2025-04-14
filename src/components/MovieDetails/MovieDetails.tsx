@@ -1,25 +1,23 @@
 import React from "react";
 import "./MovieDetails.css";
+import { Movie } from "../MovieForm/MovieForm";
 
 interface MovieDetailsProps {
-  imageUrl: string;
-  title: string;
-  releaseYear: string;
-  rating: number;
-  duration: string;
-  genres: string[];
-  description: string;
+  movie: Movie; 
+  OnCloseMovie: () => void;
 }
 
-const MovieDetails: React.FC<MovieDetailsProps> = ({
-  imageUrl,
-  title,
-  releaseYear,
-  rating,
-  duration,
-  genres,
-  description,
-}) => {
+const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, OnCloseMovie }) => {
+  const {
+    imageUrl,
+    title,
+    releaseYear,
+    rating,
+    duration,
+    genres,
+    description,
+  } = movie;
+
   return (
     <div className="movie-details-container">
       {/* Left side: Movie poster */}
@@ -35,7 +33,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({
           <div className="movie-rating">
             <span className="rating-circle">{rating}</span>
           </div>
-          <button className="magnify-button">
+          <button className="magnify-button" onClick={OnCloseMovie}>
             <i className="material-icons">search</i>
           </button>
         </div>

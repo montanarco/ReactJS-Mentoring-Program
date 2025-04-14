@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
+
   return (
     <>
       <nav>
@@ -28,6 +29,9 @@ const Layout = () => {
           </li>
           <li>
             <Link to="/testing">Testing</Link>
+          </li>
+          <li>
+            <Link to="/movie-list-page">Movie List Page</Link>
           </li>
         </ul>
       </nav>

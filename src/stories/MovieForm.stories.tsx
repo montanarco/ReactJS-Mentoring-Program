@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import MovieForm, { MovieFormProps, Movie } from "../components/MovieForm/MovieForm";
 

@@ -62,24 +62,38 @@ export default tseslint.config({
 ## Running the Project
 this needs a node version 18 or above it was builded whit v22.14.0
 
-`nvm use 22.14.0`
+```bash
+nvm use 22.14.0
+```
 
 run test
 
-`npm test`
+```bash
+npm test
+```
 
-run it locally, open in port 5173:  http://localhost:5173/
+run it locally, open in port 5173:  http://localhost:5173/menu
 
-`npm run dev`
+```bash
+npm run dev
+```
 
 E2E testing
 
-`npx cypress open`
+```bash
+npx cypress open
+```
 
 Story Book
 
-`npm create storybook@latest`
-
-`npm run storybook`
+```bash
+npm run storybook
+```
 
 the storybook sandbox runs on: http://localhost:6006/?path=/onboarding
+
+Lint  code
+
+```bash
+npm run lint
+```
