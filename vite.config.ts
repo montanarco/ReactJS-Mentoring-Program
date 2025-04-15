@@ -1,13 +1,16 @@
-import { defineConfig, UserConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react';
+import { defineConfig as defineVitestConfig } from 'vitest/config';
 
-export default defineConfig({
+export default defineVitestConfig({
   plugins: [react()],
+  esbuild: {
+    loader: 'tsx',
+    include: /\.tsx?$/,
+    target: 'esnext',
+  },
   test: {
-    // 👋 add the line below to add jsdom to vite
-    environment: 'jsdom',
-    // hey! 👋 over here
-    globals: true,
-    setupFiles: './src/setup.js', // assuming the test folder is in the root of our project
-  }
-} as UserConfig)
+    environment: 'jsdom', 
+    globals: true, 
+    setupFiles: './src/setup.js', 
+  },
+});

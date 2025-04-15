@@ -17,12 +17,16 @@ export default function CoreConcepts (){
         console.log("user Input: ", userInput);
     }
 
+    function addMovies() {
+        console.log("Add Movies");
+    }
+
     return React.createElement(
           "div", // Parent element <div>
           { style: { textAlign: "center", marginTop: "20px" } }, 
             React.createElement("h1", {}, "Core Concepts"),
             React.createElement(Counter, { initialValue: 10 }),
-            React.createElement(SearchForm, { searchCriteria: "top 10 movies", searchFunction: searchForMovies }),
+            React.createElement(SearchForm, { searchCriteria: "top 10 movies", searchFunction: searchForMovies, addMovieFunction: addMovies }),
             React.createElement(GenreSelect, {
                     genres: genres, 
                     selectedGenre: selectedGenre, 

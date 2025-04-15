@@ -1,0 +1,70 @@
+.sort-control {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  .sort-label {
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Primary Variant */
+  .sort-control.primary .sort-label {
+    color: white;
+  }
+  
+  .sort-select.primary {
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(43, 42, 42);
+    color: white;
+    border: 1px solid rgb(234, 75, 75);
+    outline: none;
+    border-radius: 4px;
+  }
+  
+  .sort-select.primary:hover {
+    background-color: rgb(30, 30, 30);
+    border-color: rgb(234, 75, 75);
+  }
+  
+  .sort-select.primary:focus {
+    background-color: rgb(30, 30, 30);
+  }
+
+  option.primary:hover {
+    background-color: rgb(234, 75, 75);
+    color: white; /* Optional: change the text color for better contrast */
+  }
+  
+  /* Secondary Variant */
+  .sort-control.secondary .sort-label {
+    color: rgb(52, 5, 152);
+  }
+  
+  .sort-select.secondary {
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(239, 234, 234);
+    color: rgb(52, 5, 152);
+    border: 1px solid rgb(52, 5, 152);
+    outline: none;
+    border-radius: 4px;
+  }
+  
+  .sort-select.secondary:hover {
+    background-color: rgb(150, 150, 150);
+    color: white;
+  }
+  
+  .sort-select.secondary:focus {
+    background-color: rgb(150, 150, 150);
+  }
+
+  option.primary:hover {
+    background-color: rgb(60, 60, 177);
+    color: white; /* Optional: change the text color for better contrast */
+  }

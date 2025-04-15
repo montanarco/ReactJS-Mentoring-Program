@@ -1,71 +1,174 @@
-/* Container for the search form */
-.search-container {
-    display: flex;
-    flex-direction: column; /* Stacks label and input vertically */
-    font-family: Arial, sans-serif;
-    align-items: flex-start;
-  }
-  
-  /* Label styling */
-  .search-label {
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px; /* Space between label and input */
-    color: #fff; /* White text */
-  }
-  
-  /* Grouping the input and button next to each other */
-  .search-input-group {
-    display: flex;
-    font-family: 'Trebuchet MS', sans-serif;
-    width: 100%; /* Ensure input and button span the full width */
-    align-items: center;
-  }
-  
-  /* Text input styles */
-  .search-input {
-    flex: 1; /* Take as much space as possible */
-    height: 40px;
-    padding: 5px 10px;
-    border: 2px solid transparent;
-    outline: none;
-    border-radius: 3px 0 0 3px; /* Left-rounded corners only */
-    background: rgba(47, 47, 47, 0.6); /* Dark gray with 60% opacity */
-    color: #fff; /* White text */
-    font-size: 14px;
-  }
+/* Primary Variant */
 
-  .search-input:hover,
-  .search-input:focus {
-    border-color: #fff; /* Highlight border when hovering or focusing */
-    background: rgba(47, 47, 47, 0.8); /* Optional: darken background slightly */
-  }
-  
-  /* Placeholder styles */
-  .search-input::placeholder {
-    color: gray;
-  }
-  
-  /* Button styles */
-  .search-button {
-    height: 40px;
-    padding: 0 15px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background: rgb(234, 75, 75); /* Light red background */
-    color: white; /* White text */
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    border-radius: 0 3px 3px 0; /* Right-rounded corners only */
-  }
-  
-  /* Add hover/active states */
-  .search-button:hover {
-    background: crimson; /* Darker red on hover */
-  }
-  
-  .search-button:active {
-    background: firebrick; /* Even darker red on click */
-  }
+/* Container */
+.search-container.primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  height: 492px; /* Match the height of the background image */
+  background-image: url("/src/assets/image_back.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Relative position so the top-right button can be positioned absolute */
+}
+
+/* Label */
+.search-label.primary {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffffff; /* White text for better visibility */
+  text-align: center;
+}
+
+/* Input Group */
+.search-input-group {
+  display: flex;
+  width: 50%; /* Adjust width of the input group */
+  align-items: center;
+  justify-content: center;
+  position: relative; /* For proper positioning */
+}
+
+/* Input */
+.search-input.primary {
+  flex: 1;
+  height: 40px;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(47, 47, 47, 0.6); /* Set initial opacity to 60% */
+  color: #fff; /* White text */
+  font-size: 16px;
+  text-align: center; /* Optional: Center text within the input */
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition for opacity */
+}
+
+.search-input.primary:hover,
+.search-input.primary:focus {
+  opacity: 1; /* Fully opaque on hover or focus */
+  background-color: rgba(47, 47, 47, 0.9); /* Slightly darker background on focus */
+  border-color: rgb(234, 75, 75);
+}
+
+.search-input.primary::placeholder {
+  color: rgb(211, 211, 211);
+}
+
+/* Button */
+.search-button.primary {
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  outline: none;
+  background: rgb(234, 75, 75);
+  color: white;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  border-radius: 3px;
+  transition: transform 0.3s ease; /* Add a subtle button effect */
+}
+
+.search-button.primary:hover {
+  background: crimson; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.search-button.primary:active {
+  background: firebrick; /* Even darker red on click */
+  transform: scale(1); /* Reset scale when clicked */
+}
+
+/* Secondary Variant */
+
+/* Container */
+.search-container.secondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  font-family: Arial, sans-serif;
+  height: 492px; /* Match the height of the background image */
+  background-image: url("your-background-image.jpg"); /* Replace with your actual image path */
+  background-size: cover; /* Make the image cover the entire container */
+  background-position: center; /* Center the image */
+}
+
+/* Label */
+.search-label.secondary {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgb(52, 5, 152); /* Secondary label styling */
+}
+
+/* Input */
+.search-input.secondary {
+  flex: 1;
+  height: 40px;
+  padding: 5px 10px;
+  border: 2px solid rgb(52, 5, 152);
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(239, 234, 234, 0.7); /* Set opacity initially to 70% */
+  color: rgb(52, 5, 152);
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition for opacity */
+}
+
+.search-input.secondary:hover,
+.search-input.secondary:focus {
+  opacity: 1; /* Fully opaque on hover or focus */
+  background-color: rgb(239, 234, 234); /* Reset background-color to fully opaque */
+}
+
+.search-input.secondary::placeholder {
+  color: rgba(52, 5, 152, 0.8); /* Placeholder text slightly transparent */
+}
+
+/* Button */
+.search-button.secondary {
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(239, 234, 234);
+  border-color: rgb(52, 5, 152);
+  color: rgb(52, 5, 152);
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* Top-right button container */
+.top-right-button-container {
+  position: absolute; /* Position the button inside the container */
+  top: 10px; /* Small margin from the top */
+  right: 10px; /* Small margin from the right */
+}
+
+/* Top-right button */
+.top-right-button {
+  height: 40px; /* Same as the Search button */
+  padding: 0 15px; /* Same horizontal padding as the Search button */
+  font-family: "Trebuchet MS", sans-serif; /* Same font */
+  font-size: 14px; /* Same font size */
+  background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent white */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 3px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  outline: none;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.top-right-button:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque white background */
+  color: red; /* Red text on hover */
+}

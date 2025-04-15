@@ -1,50 +1,36 @@
-import React from "react";
-
-interface CounterState {
-  count: number;
-}
+import React, { useState } from "react";
+import CounterButton from "../CounterButton/CounterButton"; 
 
 interface CounterProps {
   initialValue: number;
 }
 
-class Counter extends React.Component<CounterProps, CounterState> {
-  constructor(props: CounterProps) {
-    super(props);
-    this.state = {
-      count: props.initialValue || 0, 
-    };
-  }
+const Counter: React.FC<CounterProps> = ({ initialValue }) => {
+  const [count, setCount] = useState(initialValue || 0); 
 
-  increment = () => {
-    this.setState(
-      (prevState) => ({ count: prevState.count + 1 })
-    );
+  const increment = () => {
+    setCount((prevCount) => prevCount + 1);
   };
 
-  decrement = () => {
-    this.setState(
-      (prevState) => ({ count: prevState.count - 1 })
-    );
+  const decrement = () => {
+    setCount((prevCount) => prevCount - 1); 
   };
 
-  render() {
-    return React.createElement(
-      "div", 
-      { style: { textAlign: "center", marginTop: "20px" } }, 
-      React.createElement("h2", {}, `Count: ${this.state.count}`), 
-      React.createElement(
-        "button",
-        { onClick: this.decrement, style: { margin: "5px" } }, 
-        "Decrement" 
-      ),
-      React.createElement(
-        "button",
-        { onClick: this.increment, style: { margin: "5px" } }, 
-        "Increment" 
-      )
-    );
-  }
-}
+  return (
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <h2>Count: {count}</h2>
+      <CounterButton
+        onClick={decrement}
+        text="Decrement"
+        style={{ margin: "5px" }}
+      />
+      <CounterButton
+        onClick={increment}
+        text="Increment"
+        style={{ margin: "5px" }}
+      />
+    </div>
+  );
+};
 
 export default Counter;

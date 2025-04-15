@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Inception",
+    "releaseYear": 2010,
+    "imageUrl": "/src/assets/image_1.jpg",
+    "rating": 8.8,
+    "genres": ["Sci-Fi", "Action", "Adventure"],
+    "duration": "2h 28m",
+    "director": "Christopher Nolan",
+    "description": "A skilled thief uses dream-sharing technology to pull off intricate heists inside people's minds."
+  },
+  {
+    "title": "The Dark Knight",
+    "releaseYear": 2008,
+    "imageUrl": "/src/assets/image_2.jpg",
+    "rating": 9.0,
+    "genres": ["Action", "Crime", "Drama"],
+    "duration": "2h 32m",
+    "director": "Christopher Nolan",
+    "description": "Batman faces the Joker, a criminal mastermind bent on creating havoc and chaos in Gotham City."
+  },
+  {
+    "title": "Interstellar",
+    "releaseYear": 2014,
+    "imageUrl": "/src/assets/image_3.jpg",
+    "rating": 8.6,
+    "genres": ["Sci-Fi", "Drama", "Adventure"],
+    "duration": "2h 49m",
+    "director": "Christopher Nolan",
+    "description": "A team of scientists and astronauts venture through a wormhole to find a new home for humanity."
+  },
+  {
+    "title": "Forrest Gump",
+    "releaseYear": 1994,
+    "imageUrl": "/src/assets/image_4.jpg",
+    "rating": 8.8,
+    "genres": ["Drama", "Romance"],
+    "duration": "2h 22m",
+    "director": "Robert Zemeckis",
+    "description": "The touching life story of Forrest Gump, a kind and simple man with extraordinary achievements."
+  },
+  {
+    "title": "The Matrix",
+    "releaseYear": 1999,
+    "imageUrl": "/src/assets/image_5.jpeg",
+    "rating": 8.7,
+    "genres": ["Sci-Fi", "Action"],
+    "duration": "2h 16m",
+    "director": "The Wachowskis",
+    "description": "A computer hacker discovers the true nature of reality and joins a rebellion against oppressive forces."
+  },
+  {
+    "title": "Gladiator",
+    "releaseYear": 2000,
+    "imageUrl": "/src/assets/image_1.jpg",
+    "rating": 8.5,
+    "genres": ["Action", "Drama", "Historical"],
+    "duration": "2h 35m",
+    "director": "Ridley Scott",
+    "description": "A betrayed Roman general seeks revenge while fighting his way to freedom as a gladiator."
+  },
+  {
+    "title": "Pulp Fiction",
+    "releaseYear": 1994,
+    "imageUrl": "/src/assets/image_2.jpg",
+    "rating": 8.9,
+    "genres": ["Crime", "Drama"],
+    "duration": "2h 34m",
+    "director": "Quentin Tarantino",
+    "description": "The lives of hitmen, a boxer, and gangsters intertwine in a chaotic world of violence and redemption."
+  },
+  {
+    "title": "Avatar",
+    "releaseYear": 2009,
+    "imageUrl": "/src/assets/image_3.jpg",
+    "rating": 7.8,
+    "genres": ["Sci-Fi", "Adventure"],
+    "duration": "2h 42m",
+    "director": "James Cameron",
+    "description": "A former Marine is sent to Pandora, where he joins the native Na'vi in their fight to protect their world."
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "releaseYear": 1994,
+    "imageUrl": "/src/assets/image_4.jpg",
+    "rating": 9.3,
+    "genres": ["Drama", "Crime"],
+    "duration": "2h 22m",
+    "director": "Frank Darabont",
+    "description": "Two imprisoned men bond over the years, forging a friendship that inspires hope and a quest for freedom."
+  },
+  {
+    "title": "The Godfather",
+    "releaseYear": 1972,
+    "imageUrl": "/src/assets/image_5.jpeg",
+    "rating": 9.2,
+    "genres": ["Crime", "Drama"],
+    "duration": "2h 55m",
+    "director": "Francis Ford Coppola",
+    "description": "The patriarch of a powerful crime family passes responsibility to his son during times of betrayal and turmoil."
+  }
+]
