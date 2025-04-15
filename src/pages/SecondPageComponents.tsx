@@ -103,6 +103,7 @@ const SecondPageComponents = () => {
       
       <MovieGrid
         onMovieSelected={handleMovieSelect}
+        currentPage={1}
         movies={movies} 
         columns={3} 
         itemsPerPageOptions={[3, 6, 9, 12]} 

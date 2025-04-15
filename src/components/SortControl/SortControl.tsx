@@ -31,9 +31,10 @@ const SortControl: React.FC<SortControlProps> = ({ selectedValue, onChange, vari
         value={selectedValue}
         onChange={handleSelectionChange}
       >
-        <option className={optionClass} value="Release Date">Release Date</option>
-        <option className={optionClass} value="Title">Title</option>
-        <option className={optionClass} value="Rating">Rating</option>
+        <option className={optionClass} value="No Sorted">No sorted</option>
+        <option className={optionClass} value="release_date">Release Date</option>
+        <option className={optionClass} value="title">Title</option>
+        <option className={optionClass} value="vote_average">Rating</option>
       </select>
     </div>
   );
