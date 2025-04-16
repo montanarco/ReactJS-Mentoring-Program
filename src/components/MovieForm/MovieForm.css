@@ -143,4 +143,40 @@
     }
   }
 
+  .scroll-box {
+    border: 1px solid #ccc; /* A subtle border for the box */
+    border-radius: 6px; /* Rounded corners for aesthetic */
+    padding: 16px; /* Give some padding inside the box */
+    height: 150px; /* Set the fixed height of the box */
+    overflow-y: scroll; /* Enable vertical scrolling when needed */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  #genres {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Add space between items */
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+   
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+  }
+   
+  .checkbox-container label {
+    margin: 0;
+    font-weight: normal;
+    width: 75px; /* Allow label to take its natural width */
+  }
+  
+  .checkbox-label {
+    width: 100px; /* Fixed width for labels (optional, ensures alignment) */
+    margin-right: 8px; /* Add spacing between label and checkbox */
+    text-align: left; /* Ensure text aligns to the left */
+  }
+  
   

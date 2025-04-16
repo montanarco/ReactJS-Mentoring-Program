@@ -7,13 +7,14 @@ import MovieDetails from '../components/MovieDetails/MovieDetails';
 import { Movie } from '../components/MovieForm/MovieForm';
 import useFetch from '../hooks/useFetch';
 import transformMovieData from '../hooks/transformMovieData';
+import './MovieListPage.css';
 
 const URL_BASE = import.meta.env.MOVIE_API_BASE_URL || 'http://localhost:4000/movies';
 
 export default function MovieListPage() {
     const genres = [
         'All', 'Action', 'Comedy', 'Drama', 'Horror', 'Science Fiction', 'Thriller',
-        'Western', 'Animation', 'Mystery', 'Romance', 'Adventure', 'Fantasy', 
+        'Western', 'Animation', 'Mystery', 'Romance', 'Adventure', 'Fantasy',
         'Documentary', 'Family', 'War', 'History', 'Crime',
     ];
 
@@ -98,7 +99,6 @@ export default function MovieListPage() {
     };
 
     const handlePageChange = (direction: string) => {
-        console.log('MovieListPage - Page changed:', direction);
         if (direction === 'next' && page < totalPages) {
             setPage((prevPage) => prevPage + 1);
         } else if (direction === 'prev' && page > 1) {
@@ -126,18 +126,28 @@ export default function MovieListPage() {
             )}
 
             <div>
-                <GenreSelect
-                    genres={genres}
-                    layout="flex"
-                    onSelect={handleGenreSelect}
-                    selectedGenre={activeGenre || ''}
-                    variant="primary"
-                />
-                <SortControl
-                    onChange={handleSortChange}
-                    selectedValue={sortCriteria}
-                    variant="primary"
-                />
+                <div className="container">
+                    {/* Ensure proper class for GenreSelect */}
+                    <div className="genre-select">
+                        <GenreSelect
+                            genres={genres}
+                            layout="flex" /* 'flex' ensures buttons wrap */
+                            onSelect={handleGenreSelect}
+                            selectedGenre={activeGenre || ''}
+                            variant="primary"
+                        />
+                    </div>
+
+                    {/* Ensure proper class for SortControl */}
+                    <div className="sort-control">
+                        <SortControl
+                            onChange={handleSortChange}
+                            selectedValue={sortCriteria}
+                            variant="primary"
+                        />
+                    </div>
+                </div>
+
                 {loading ? (
                     <div>Loading...</div>
                 ) : error ? (

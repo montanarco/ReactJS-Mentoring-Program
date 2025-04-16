@@ -1,67 +1,73 @@
-/* Layout Variations */
+/* Grid Layout */
+.button-container.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Maximum 8 genres per row */
+  gap: 1em; /* Add spacing between buttons */
+  margin: 1em auto 2em;
+  width: 70%; /* Ensure the grid container doesn't overflow horizontally */
+  box-sizing: border-box; /* Prevent padding from breaking the layout */
+  justify-items: center; /* Center-align items horizontally */
+}
+
+/* Layout for "flex" (Alternative layout mode) */
 .button-container.flex {
-    display: flex;
-    justify-content: center;
-    margin: 1em auto 2em;
-  }
-  
-  .button-container.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1em;
-    margin: 1em auto 2em;
-  }
-  
-  /* Primary Variant */
-  .genre-button.primary {
-    height: 40px;
-    padding: 0 15px;
-    cursor: pointer;
-    outline: none;
-    background-color: rgb(43, 42, 42);
-    color: white;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    opacity: 0.2;
-    border-radius: 0;
-  }
-  
-  .genre-button.primary:hover {
-    opacity: 0.8;
-    border-color: rgb(234, 75, 75);
-    color: rgb(234, 75, 75);
-  }
-  
-  .genre-button.primary.selected {
-    opacity: 1;
-    border-color: rgb(234, 75, 75);
-    border-width: 2px;
-    background-color: rgb(30, 30, 30);
-    color: rgb(234, 75, 75);
-    font-style: italic;
-  }
-  
-  /* Secondary Variant */
-  .genre-button.secondary {
-    height: 40px;
-    padding: 0 15px;
-    cursor: pointer;
-    outline: none;
-    background-color: rgb(239, 234, 234);
-    border-color: rgb(52, 5, 152);;
-    color: rgb(52, 5, 152);
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-    border-radius: 4px;
-  }
-  
-  .genre-button.secondary:hover {
-    opacity: 0.9;
-    background-color: rgb(150, 150, 150);
-  }
-  
-  .genre-button.secondary.selected {
-    background-color: rgb(150, 150, 150);
-    color: white;
-    font-weight: bold;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow flexible wrapping */
+  gap: 1em; /* Add spacing between buttons */
+  margin: 1em auto 2em;
+}
+
+/* Primary Variant */
+.genre-button.primary {
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 14px;
+  opacity: 0.2;
+  border-radius: 0;
+}
+
+.genre-button.primary:hover {
+  opacity: 0.8;
+  border-color: rgb(234, 75, 75);
+  color: rgb(234, 75, 75);
+}
+
+.genre-button.primary.selected {
+  opacity: 1;
+  border-color: rgb(234, 75, 75);
+  border-width: 2px;
+  background-color: rgb(30, 30, 30);
+  color: rgb(234, 75, 75);
+  font-style: italic;
+}
+
+/* Secondary Variant */
+.genre-button.secondary {
+  height: 40px;
+  padding: 0 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(239, 234, 234);
+  border-color: rgb(52, 5, 152);
+  color: rgb(52, 5, 152);
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.genre-button.secondary:hover {
+  opacity: 0.9;
+  background-color: rgb(150, 150, 150);
+}
+
+.genre-button.secondary.selected {
+  background-color: rgb(150, 150, 150);
+  color: white;
+  font-weight: bold;
+}

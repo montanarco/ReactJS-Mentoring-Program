@@ -13,18 +13,19 @@ const GenreSelect: React.FC<GenreSelectProps> = ({
   genres = [],
   selectedGenre,
   onSelect,
-  layout = "flex",
+  layout = "grid", // Default layout is 'grid'
   variant = "primary",
 }) => {
   const handleGenreClick = (genre: string) => {
     onSelect(genre);
   };
 
+  // Dynamically set container classes based on layout
   const containerClass = `button-container ${layout}`;
   const buttonClassBase = `genre-button ${variant}`;
 
   return (
-    <div className={containerClass}>
+    <div className={`genre-select ${containerClass}`}>
       {genres.map((genre) => (
         <button
           className={`${buttonClassBase} ${selectedGenre === genre ? "selected" : ""}`}

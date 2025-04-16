@@ -44,8 +44,8 @@
 
 /* Header Section */
 .modal-header {
-    display: flex; /* Use flexbox to align child elements */
-    flex-direction: column; /* Ensure content stacks vertically if needed */
+    display: block; /* Use flexbox to align child elements */
+    flex-direction: row; /* Ensure content stacks vertically if needed */
     justify-content: center; /* Centers content horizontally */
     align-items: center; /* Centers content vertically */
     padding: 15px;
@@ -67,9 +67,10 @@
 
 /* Modal Title */
 .modal-title {
-    margin: 0; /* Remove unnecessary spacing */
-    text-align: center; /* Align text inside its container */
-    width: 100%; /* Force the title to span the entire header width */
+    margin: 0; /* Ensure no unnecessary spacing */
+    padding: 0;
+    text-align: center; /* Ensure text is aligned inside the container */
+    width: 100%;
 }
 
 .modal-title.primary {

@@ -29,7 +29,7 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelec
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedMovies = movies.slice(startIndex, startIndex + itemsPerPage);
+  //const paginatedMovies = movies.slice(startIndex, startIndex + itemsPerPage);
 
   const rows = [];
   for (let i = 0; i < movies.length; i += columns) {

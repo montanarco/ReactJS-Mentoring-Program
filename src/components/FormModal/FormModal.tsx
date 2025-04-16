@@ -25,8 +25,10 @@ const FormModal: React.FC<FormModalProps> = ({ title, children, onClose, variant
             </button>
             <br />
           </div>
-          <div className={`Modal-header ${variant}`}>
-            <div className={`Modal-title ${variant}`}>{title}</div>
+          <div className={`modal-header ${variant}`}>
+            <div className={`modal-title ${variant}`}>
+              {title}
+            </div>
           </div>
           <div className={`modal-body ${variant}`}>{children}</div>
         </div>
