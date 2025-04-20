@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchForm.css";
 
 interface SearchFormProps {
@@ -17,6 +17,12 @@ const SearchForm: React.FC<SearchFormProps> = ({
   variant = "primary",
 }) => {
   const [searchWord, setSearchWord] = useState<string>(searchCriteria || "");
+
+  // Synchronize `searchWord` with `searchCriteria` whenever `searchCriteria` changes
+  useEffect(() => {
+    setSearchWord(searchCriteria);
+  }, [searchCriteria]);
+
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(event.target.value);
