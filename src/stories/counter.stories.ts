@@ -3,7 +3,7 @@ import Counter from '../components/Counter/Counter';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Counter',
+  title: 'Components/Counter',
   component: Counter,
   parameters: {
     layout: 'centered', 

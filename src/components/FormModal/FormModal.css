@@ -1,0 +1,116 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.primary {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-overlay.secondary {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Container */
+.modal {
+    width: 50%;
+    max-width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal.primary {
+    background: #232323;
+    border-radius: 3px;
+    border: solid 2px #f65261;
+}
+
+.modal.secondary {
+    background: #f1f1f1;
+    border-radius: 6px;
+    border: solid 2px rgb(52, 5, 152);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.modal-header {
+    display: flex; /* Use flexbox to align child elements */
+    flex-direction: column; /* Ensure content stacks vertically if needed */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Ensure any child text is centered */
+    width: 100%; /* Takes full width */
+}
+
+/* Primary Variant */
+.modal-header.primary {
+    color: #f65261;
+}
+
+/* Secondary Variant */
+.modal-header.secondary {
+    color: rgb(52, 5, 152);
+}
+
+/* Modal Title */
+.modal-title {
+    margin: 0; /* Remove unnecessary spacing */
+    text-align: center; /* Align text inside its container */
+    width: 100%; /* Force the title to span the entire header width */
+}
+
+.modal-title.primary {
+    color: #f65261;
+}
+
+.modal-title.secondary {
+    color: rgb(52, 5, 152);
+}
+
+.modal-close-button {
+    position: absolute; 
+    top: 10px;
+    right: 10px; 
+}
+
+.modal-close-button.primary {
+    color: #fff;
+}
+
+.modal-close-button.primary:hover {
+    color: #e74c3c;
+}
+
+.modal-close-button.secondary {
+    color: rgb(52, 5, 152);
+}
+
+.modal-close-button.secondary:hover {
+    color: rgb(150, 150, 150);
+}
+
+.modal-body {
+    padding: 15px;
+    text-align: center; 
+}
+
+.modal-body.primary {
+    color: #fff;
+}
+
+.modal-body.secondary {
+    color: #333;
+}

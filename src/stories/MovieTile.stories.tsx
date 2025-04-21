@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import MovieTile from "../components/MovieTile/MovieTile";
 
 const meta: Meta<typeof MovieTile> = {
-  title: "Example/MovieTile", // Appears in the Storybook sidebar
+  title: "Components/MovieTile", // Appears in the Storybook sidebar
   component: MovieTile, // Points to the MovieTile component
   parameters: { layout: "centered" }, // Centers the stories in the layout
   tags: ["autodocs"], // Automatically generates documentation

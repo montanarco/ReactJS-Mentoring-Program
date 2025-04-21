@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
 
 const meta: Meta<typeof MovieDetails> = {
-  title: "Example/MovieDetails", // Appears in the Storybook sidebar
-  component: MovieDetails, // Points to the MovieDetails component
-  parameters: { layout: "centered" }, // Center the stories in the layout
-  tags: ["autodocs"], // Enables auto-generated documentation
+  title: "Components/MovieDetails", 
+  component: MovieDetails, 
+  parameters: { layout: "centered" }, 
+  tags: ["autodocs"], 
 };
 
 export default meta;

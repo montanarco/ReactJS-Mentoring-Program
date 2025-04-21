@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import GenreSelect from "../components/GenreSelect/GenreSelect";
 
 const meta: Meta<typeof GenreSelect> = {
-  title: "Example/GenreSelect", 
+  title: "Components/GenreSelect", 
   component: GenreSelect, 
   parameters: { layout: "centered", },
   tags: ["autodocs"], 

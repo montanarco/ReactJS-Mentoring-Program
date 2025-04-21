@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SortControl from "../components/SortControl/SortControl";
 
 const meta: Meta<typeof SortControl> = {
-  title: "Example/SortControl", 
+  title: "Components/SortControl", 
   component: SortControl, 
   parameters: { layout: "centered" }, 
   tags: ["autodocs"], 
