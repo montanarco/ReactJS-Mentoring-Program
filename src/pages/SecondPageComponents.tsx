@@ -6,10 +6,15 @@ import Dialog from "../components/Dialog/Dialog";
 import MovieForm, { Movie } from "../components/MovieForm/MovieForm";
 import FormModal from "../components/FormModal/FormModal";
 import movies from "../assets/movies.json"; 
+import { useNavigate } from "react-router-dom";
+
 const SecondPageComponents = () => {
+
+  const navigate = useNavigate();
 
 
   const testMovie: Movie = {
+    id: 1,
     imageUrl: "/src/assets/inception.png", 
     title: "Inception",
     releaseYear: 2010,
@@ -21,6 +26,7 @@ const SecondPageComponents = () => {
   };
 
   const movieFormDummy: Movie = {
+    id: 2,
     title: "Inception",
     releaseYear: 2010,
     imageUrl: "https://example.com/inception.jpg",
@@ -75,9 +81,8 @@ const SecondPageComponents = () => {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
   const handleMovieSelect = (movie: Movie) => {
-    setSelectedMovie(movie);
-    console.log('Selected Movie:', movie);
-};
+    navigate(`/movie-list-page/${movie.id}`, { replace: false }); // Navigate to movie details
+  };
 
   const [sortBy, setSortBy] = useState("Release Date"); // Current selected sort option
 
@@ -93,7 +98,7 @@ const SecondPageComponents = () => {
 
     return (
       <>
-      {selectedMovie && <MovieDetails movie={testMovie} OnCloseMovie={handleCloseMovie}/>}
+      {selectedMovie && <MovieDetails movieInp={testMovie} OnCloseMovie={handleCloseMovie}/>}
 
       <SortControl
         selectedValue={sortBy}

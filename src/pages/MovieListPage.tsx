@@ -7,13 +7,16 @@ import MovieDetails from '../components/MovieDetails/MovieDetails';
 import { Movie } from '../components/MovieForm/MovieForm';
 import useFetch from '../hooks/useFetch';
 import transformMovieData from '../hooks/transformMovieData';
-import { useSearchParams } from "react-router-dom";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import './MovieListPage.css';
 
 const URL_BASE = import.meta.env.MOVIE_API_BASE_URL || 'http://localhost:4000/movies';
 
 
 export default function MovieListPage() {
+
+    const navigate = useNavigate();
+
     const genres = [
         'All', 'Action', 'Comedy', 'Drama', 'Horror', 'Science Fiction', 'Thriller',
         'Western', 'Animation', 'Mystery', 'Romance', 'Adventure', 'Fantasy',
@@ -126,8 +129,10 @@ export default function MovieListPage() {
         setPage(1);
     };
 
+
     const handleMovieSelect = (movie: Movie) => {
-        setSelectedMovie(movie);
+        const queryString = searchParams.toString(); // Get current search params
+        navigate(`/movie-list-page/${movie.id}?${queryString}`, { replace: false });
     };
 
     const handleCloseMovie = () => {
@@ -153,7 +158,8 @@ export default function MovieListPage() {
     return (
         <>
             <h3>Movie List</h3>
-            {selectedMovie ? (
+            <Outlet />
+            {/*{selectedMovie ? (
                 <MovieDetails movie={selectedMovie} OnCloseMovie={handleCloseMovie} />
             ) : (
                 <SearchForm
@@ -163,7 +169,7 @@ export default function MovieListPage() {
                     variant="primary"
                     searchCriteria={searchQuery} // Ensure this is correct
                 />
-            )}
+            )}*/}
 
             <div>
                 <div className="container">

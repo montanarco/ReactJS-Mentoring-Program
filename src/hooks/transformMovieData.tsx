@@ -1,19 +1,23 @@
-const transformMovieData = (data: any) => {
-    if (!Array.isArray(data)) {
-        console.error('Expected an array but got:', data);
-        return []; // Return an empty array
-    }
+const transformMovieItem = (item: any) => {
+        
+    return ({
+        id: item.id,
+        title: item.title,
+        releaseYear: new Date(item.release_date).getFullYear(),
+        imageUrl: item.poster_path,
+        rating: item.vote_average,
+        genres: item.genres,
+        duration: `${item.runtime} min`,
+        director: 'N/A', 
+        description: item.overview,
+    });
+}
 
-    return data.map((movie: any) => ({
-        title: movie.title,
-        releaseYear: new Date(movie.release_date).getFullYear(),
-        imageUrl: movie.poster_path,
-        rating: movie.vote_average,
-        genres: movie.genres,
-        duration: `${movie.runtime} min`,
-        director: 'N/A', // API doesn't provide director information
-        description: movie.overview,
-    }));
+const transformMovieData = (data: any) => {
+    if (!Array.isArray(data)) 
+        return transformMovieItem(data);
+
+    return data.map((movie: any) => transformMovieItem(movie));
 };
 
 export default transformMovieData;

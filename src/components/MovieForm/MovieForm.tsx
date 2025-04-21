@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./MovieForm.css";
 
 export interface Movie {
+    id: number;
     title: string;
     releaseYear: number;
     imageUrl: string;
@@ -27,6 +28,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
     ];
     const [formData, setFormData] = useState<Movie>(
         movie || {
+            id: 0,
             title: "",
             releaseYear: new Date().getFullYear(),
             imageUrl: "",

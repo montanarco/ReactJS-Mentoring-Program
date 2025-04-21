@@ -3,16 +3,16 @@ import "./SearchForm.css";
 
 interface SearchFormProps {
   searchCriteria: string;
-  searchFunction: (searchCriteria: string) => void;
-  addMovieFunction: () => void;
+  searchFunction?: (searchCriteria: string) => void;
+  addMovieFunction?: () => void;
   placeholder?: string;
   variant?: "primary" | "secondary";
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({
   searchCriteria,
-  searchFunction,
-  addMovieFunction,
+  searchFunction = (searchCriteria: string) => {console.log("Search clicked", searchCriteria);},
+  addMovieFunction  = () => {console.log("Add Movie clicked");},
   placeholder = "Search...",
   variant = "primary",
 }) => {

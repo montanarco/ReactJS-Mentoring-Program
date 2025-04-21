@@ -1,13 +1,27 @@
 import React from "react";
 import "./MovieDetails.css";
 import { Movie } from "../MovieForm/MovieForm";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 interface MovieDetailsProps {
-  movie: Movie; 
-  OnCloseMovie: () => void;
+  movieInp?: Movie | null;
+  OnCloseMovie?: () => void;
 }
 
-const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, OnCloseMovie }) => {
+
+const MovieDetails: React.FC<MovieDetailsProps> = ({ movieInp, OnCloseMovie }) => {
+  const movie = useLoaderData() as Movie || movieInp;
+  const navigate = useNavigate();
+
+  const handleCloseMovie = () => {
+    console.log("Movie details closed");
+    if (OnCloseMovie) {
+      OnCloseMovie();
+    } else {
+      navigate(`/movie-list-page/`);
+    }
+  }
+
   const {
     imageUrl,
     title,
@@ -33,7 +47,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, OnCloseMovie }) => {
           <div className="movie-rating">
             <span className="rating-circle">{rating}</span>
           </div>
-          <button id="movie-info-close" className="magnify-button" onClick={OnCloseMovie}>
+          <button id="movie-info-close" className="magnify-button" onClick={handleCloseMovie}>
             <i className="material-icons">search</i>
           </button>
         </div>
