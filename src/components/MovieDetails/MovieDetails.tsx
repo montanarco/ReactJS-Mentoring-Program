@@ -14,7 +14,6 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movieInp, OnCloseMovie }) =
   const navigate = useNavigate();
 
   const handleCloseMovie = () => {
-    console.log("Movie details closed");
     if (OnCloseMovie) {
       OnCloseMovie();
     } else {

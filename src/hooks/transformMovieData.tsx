@@ -1,6 +1,6 @@
 const transformMovieItem = (item: any) => {
         
-    return ({
+    return {
         id: item.id,
         title: item.title,
         releaseYear: new Date(item.release_date).getFullYear(),
@@ -10,12 +10,12 @@ const transformMovieItem = (item: any) => {
         duration: `${item.runtime} min`,
         director: 'N/A', 
         description: item.overview,
-    });
+    };
 }
 
 const transformMovieData = (data: any) => {
     if (!Array.isArray(data)) 
-        return transformMovieItem(data);
+        return [transformMovieItem(data)];
 
     return data.map((movie: any) => transformMovieItem(movie));
 };

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import SearchForm from '../components/SearchForm/SearchForm';
 import GenreSelect from '../components/GenreSelect/GenreSelect';
 import SortControl from '../components/SortControl/SortControl';
 import MovieGrid from '../components/MovieGrid/MovieGrid';
-import MovieDetails from '../components/MovieDetails/MovieDetails';
 import { Movie } from '../components/MovieForm/MovieForm';
 import useFetch from '../hooks/useFetch';
 import transformMovieData from '../hooks/transformMovieData';
@@ -12,6 +10,10 @@ import './MovieListPage.css';
 
 const URL_BASE = import.meta.env.MOVIE_API_BASE_URL || 'http://localhost:4000/movies';
 
+export type MovieListContextType = {
+    updateSearchQuery: (searchWord: string) => void;
+    searchQuery: string;
+  };
 
 export default function MovieListPage() {
 
@@ -30,7 +32,6 @@ export default function MovieListPage() {
     const [moviesList, setMoviesList] = useState<Movie[]>([]); // Movies for the current page
     const [url, setUrl] = useState(URL_BASE); // URL for API request
     const [searchParams, setSearchParams] = useSearchParams();
-    const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
     const [page, setPage] = useState(1); // Current pagination page
     const [totalPages, setTotalPages] = useState(1); // Total number of pages (calculated from API data)
 
@@ -75,6 +76,12 @@ export default function MovieListPage() {
         });
     };
 
+    // Function to handle search query changes
+  const updateSearchQuery = (searchWord: string) => {
+    setSearchQuery(searchWord);
+    updateSearchParams(searchWord, activeGenre || '', sortCriteria, 1);
+  };
+
     // load the URL params for the first time
     useEffect(() => {
         const search = searchParams.get('search') || '';
@@ -85,11 +92,8 @@ export default function MovieListPage() {
         setSearchQuery(search);
         setActiveGenre(genre);
         setSortCriteria(sortBy);
-        setPage(pageParam);
+        setPage(pageParam); 
 
-        console.log('URL Params:', { search, genre, sortBy, page: pageParam });
-
-        // Don't call `updateSearchParams` here; let the initialization happen naturally
         const newUrl = buildURL();
         setUrl(newUrl); // Trigger fetch by updating the URL
     }, []);
@@ -109,9 +113,8 @@ export default function MovieListPage() {
         }
     }, [data]);
 
-    // Handlers for user interactions
     const handleGenreSelect = (genre: string) => {
-        setActiveGenre(genre === activeGenre ? null : genre); // Toggle genre selection
+        setActiveGenre(genre === activeGenre ? null : genre); 
         const auxGenre = genre === activeGenre ? '' : genre;
         updateSearchParams(searchQuery, auxGenre, sortCriteria, 1);
         setPage(1);
@@ -123,20 +126,9 @@ export default function MovieListPage() {
         setPage(1);
     };
 
-    const onSearch = (searchCriteria: string) => {
-        setSearchQuery(searchCriteria);
-        updateSearchParams(searchCriteria, activeGenre || '', sortCriteria, 1);
-        setPage(1);
-    };
-
-
     const handleMovieSelect = (movie: Movie) => {
         const queryString = searchParams.toString(); // Get current search params
         navigate(`/movie-list-page/${movie.id}?${queryString}`, { replace: false });
-    };
-
-    const handleCloseMovie = () => {
-        setSelectedMovie(null);
     };
 
     const handlePageChange = (direction: string) => {
@@ -151,40 +143,23 @@ export default function MovieListPage() {
         updateSearchParams(searchQuery, activeGenre || '', sortCriteria, pageParam);
     };
 
-    const onAddMovie = () => {
-        console.log('Movie added!');
-    };
 
     return (
         <>
             <h3>Movie List</h3>
-            <Outlet />
-            {/*{selectedMovie ? (
-                <MovieDetails movie={selectedMovie} OnCloseMovie={handleCloseMovie} />
-            ) : (
-                <SearchForm
-                    placeholder="What do you want to watch?"
-                    searchFunction={onSearch}
-                    addMovieFunction={onAddMovie}
-                    variant="primary"
-                    searchCriteria={searchQuery} // Ensure this is correct
-                />
-            )}*/}
-
+            <Outlet context={{ updateSearchQuery, searchQuery }} />
             <div>
                 <div className="container">
-                    {/* Ensure proper class for GenreSelect */}
                     <div className="genre-select">
                         <GenreSelect
                             genres={genres}
-                            layout="flex" /* 'flex' ensures buttons wrap */
+                            layout="flex" 
                             onSelect={handleGenreSelect}
                             selectedGenre={activeGenre || ''}
                             variant="primary"
                         />
                     </div>
 
-                    {/* Ensure proper class for SortControl */}
                     <div className="sort-control">
                         <SortControl
                             onChange={handleSortChange}
@@ -200,11 +175,11 @@ export default function MovieListPage() {
                     <div>Error: {error}</div>
                 ) : moviesList.length > 0 ? (
                     <MovieGrid
-                        movies={moviesList} // Pass movies directly (already paginated by API)
+                        movies={moviesList} 
                         currentPage={page}
                         onMovieSelected={handleMovieSelect}
                         columns={3}
-                        itemsPerPageOptions={[9]} // Fixed to 9 as we're paginating via the backend
+                        itemsPerPageOptions={[9]} 
                         onPageChange={handlePageChange}
                     />
                 ) : (

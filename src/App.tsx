@@ -6,11 +6,11 @@ import CoreConcepts from "./pages/CoreConcepts";
 import './App.css'
 import Testing from "./pages/Testing";
 import SecondPageComponents from "./pages/SecondPageComponents";
-import ApplyComposition from "./pages/ApplyComposition";
 import MovieListPage from "./pages/MovieListPage";
 import MovieDetails from "./components/MovieDetails/MovieDetails";
 import SearchForm from "./components/SearchForm/SearchForm";
 import MovieDetailsLoader from "./loaders/MovieDetailsLoader";
+
 
 const router = createBrowserRouter([
   {
@@ -34,10 +34,6 @@ const router = createBrowserRouter([
     element: <SecondPageComponents />,
   },
   {
-    path: "apply-composition",
-    element: <ApplyComposition />,
-  },
-  {
     path: "/movie-list-page", // Parent route
     element: <MovieListPage />,
     children: [
@@ -47,10 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: ":movieId", // Relative path for movie details (e.g., "/movie-list-page/:movieId")
-        element: <MovieDetails
-          movieInp={null}
-          OnCloseMovie={() => {}}
-        />,
+        element: <MovieDetails movieInp={null} />,
         loader: MovieDetailsLoader,
       },
     ],
