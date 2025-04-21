@@ -74,7 +74,7 @@ const SecondPageComponents = () => {
 
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  const handleMovieSelect = (movie: any) => {
+  const handleMovieSelect = (movie: Movie) => {
     setSelectedMovie(movie);
     console.log('Selected Movie:', movie);
 };

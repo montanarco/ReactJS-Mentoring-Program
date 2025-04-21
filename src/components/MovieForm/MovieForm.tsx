@@ -51,7 +51,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
         onSubmit(formData);
     };
 
-    const handleGenreChange = (e: { target: { value: any; checked: any; }; }) => {
+    const handleGenreChange = (e: { target: { value: string; checked: boolean; }; }) => {
         const { value, checked } = e.target;
 
         if (checked) {

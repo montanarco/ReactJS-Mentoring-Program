@@ -15,8 +15,6 @@ interface MovieGridProps {
 const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelected, columns, itemsPerPageOptions, onPageChange }) => {
   const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[0] || 10);
 
-  //const totalPages = Math.ceil(movies.length / itemsPerPage);
-
   const handlePageChange = (direction: "prev" | "next") => {
     if (onPageChange) {
       onPageChange(direction);
@@ -27,9 +25,6 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelec
   const handleItemsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsPerPage(Number(event.target.value));
   };
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  //const paginatedMovies = movies.slice(startIndex, startIndex + itemsPerPage);
 
   const rows = [];
   for (let i = 0; i < movies.length; i += columns) {
@@ -59,11 +54,11 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelec
           ))}
         </select>
         <div className="pagination-buttons">
-          <button onClick={() => handlePageChange('prev')} disabled={currentPage === 1}>
+          <button id="prev" onClick={() => handlePageChange('prev')} disabled={currentPage === 1}>
             Previous
           </button>
           <span>Page {currentPage}</span>
-          <button onClick={() => handlePageChange('next')} disabled={movies.length === 0}>
+          <button id="next" onClick={() => handlePageChange('next')} disabled={movies.length === 0}>
             Next
           </button>
         </div>

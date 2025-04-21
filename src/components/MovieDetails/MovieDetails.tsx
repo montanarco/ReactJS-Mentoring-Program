@@ -33,7 +33,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, OnCloseMovie }) => {
           <div className="movie-rating">
             <span className="rating-circle">{rating}</span>
           </div>
-          <button className="magnify-button" onClick={OnCloseMovie}>
+          <button id="movie-info-close" className="magnify-button" onClick={OnCloseMovie}>
             <i className="material-icons">search</i>
           </button>
         </div>

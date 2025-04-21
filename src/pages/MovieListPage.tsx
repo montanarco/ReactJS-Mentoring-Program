@@ -126,7 +126,7 @@ export default function MovieListPage() {
         setPage(1);
     };
 
-    const handleMovieSelect = (movie: any) => {
+    const handleMovieSelect = (movie: Movie) => {
         setSelectedMovie(movie);
     };
 
