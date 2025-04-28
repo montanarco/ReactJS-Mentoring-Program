@@ -1,48 +1,43 @@
 import React, { useState } from "react";
 import MovieTile from "../MovieTile/MovieTile";
+import { Movie } from "../MovieForm/MovieForm";
 import "./MovieGrid.css";
 
 interface MovieGridProps {
-  movies: Array<{
-    imageUrl: string;
-    name: string;
-    releaseYear: number;
-    director: string;
-    genres: string[];
-  }>;
-  columns: number; 
-  itemsPerPageOptions: number[]; 
+  movies: Array<Movie>;
+  currentPage: number;
+  onMovieSelected: (movie: Movie) => void;
+  columns: number;
+  itemsPerPageOptions: number[];
+  onPageChange?: (direction: string) => void;
 }
 
-const MovieGrid: React.FC<MovieGridProps> = ({ movies, columns, itemsPerPageOptions }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelected, columns, itemsPerPageOptions, onPageChange }) => {
   const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[0] || 10);
 
-  const totalPages = Math.ceil(movies.length / itemsPerPage);
+  //const totalPages = Math.ceil(movies.length / itemsPerPage);
 
   const handlePageChange = (direction: "prev" | "next") => {
-    if (direction === "prev" && currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    } else if (direction === "next" && currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+    if (onPageChange) {
+      onPageChange(direction);
     }
+
   };
 
   const handleItemsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsPerPage(Number(event.target.value));
-    setCurrentPage(1); 
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedMovies = movies.slice(startIndex, startIndex + itemsPerPage);
+  //const paginatedMovies = movies.slice(startIndex, startIndex + itemsPerPage);
 
   const rows = [];
-  for (let i = 0; i < paginatedMovies.length; i += columns) {
-    const rowMovies = paginatedMovies.slice(i, i + columns);
+  for (let i = 0; i < movies.length; i += columns) {
+    const rowMovies = movies.slice(i, i + columns); // No pagination slicing here
     rows.push(
       <div className="movie-grid-row" key={`row-${i}`}>
         {rowMovies.map((movie, index) => (
-          <MovieTile key={`movie-${index}`} movie={movie} />
+          <MovieTile key={`movie-${index}`} movie={movie} onClick={() => onMovieSelected(movie)} />
         ))}
       </div>
     );
@@ -64,11 +59,11 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, columns, itemsPerPageOpti
           ))}
         </select>
         <div className="pagination-buttons">
-          <button onClick={() => handlePageChange("prev")} disabled={currentPage === 1}>
+          <button onClick={() => handlePageChange('prev')} disabled={currentPage === 1}>
             Previous
           </button>
           <span>Page {currentPage}</span>
-          <button onClick={() => handlePageChange("next")} disabled={currentPage === totalPages}>
+          <button onClick={() => handlePageChange('next')} disabled={movies.length === 0}>
             Next
           </button>
         </div>

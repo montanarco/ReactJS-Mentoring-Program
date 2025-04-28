@@ -4,8 +4,14 @@
 .search-container.primary {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif;
-  align-items: flex-start;
+  height: 492px; /* Match the height of the background image */
+  background-image: url("/src/assets/image_back.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Relative position so the top-right button can be positioned absolute */
 }
 
 /* Label */
@@ -14,14 +20,17 @@
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #555555; /* White text */
+  color: #ffffff; /* White text for better visibility */
+  text-align: center;
 }
 
 /* Input Group */
 .search-input-group {
   display: flex;
-  width: 100%;
+  width: 50%; /* Adjust width of the input group */
   align-items: center;
+  justify-content: center;
+  position: relative; /* For proper positioning */
 }
 
 /* Input */
@@ -31,16 +40,19 @@
   padding: 5px 10px;
   border: 2px solid transparent;
   outline: none;
-  border-radius: 3px 0 0 3px; /* Left-rounded corners only */
-  background: rgba(47, 47, 47, 0.6);
+  border-radius: 4px;
+  background-color: rgba(47, 47, 47, 0.6); /* Set initial opacity to 60% */
   color: #fff; /* White text */
-  font-size: 14px;
+  font-size: 16px;
+  text-align: center; /* Optional: Center text within the input */
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition for opacity */
 }
 
 .search-input.primary:hover,
 .search-input.primary:focus {
+  opacity: 1; /* Fully opaque on hover or focus */
+  background-color: rgba(47, 47, 47, 0.9); /* Slightly darker background on focus */
   border-color: rgb(234, 75, 75);
-  background: rgba(47, 47, 47, 0.8);
 }
 
 .search-input.primary::placeholder {
@@ -57,15 +69,18 @@
   color: white;
   font-family: "Trebuchet MS", sans-serif;
   font-size: 14px;
-  border-radius: 0 3px 3px 0; /* Right-rounded corners only */
+  border-radius: 3px;
+  transition: transform 0.3s ease; /* Add a subtle button effect */
 }
 
 .search-button.primary:hover {
   background: crimson; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .search-button.primary:active {
   background: firebrick; /* Even darker red on click */
+  transform: scale(1); /* Reset scale when clicked */
 }
 
 /* Secondary Variant */
@@ -74,8 +89,13 @@
 .search-container.secondary {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
   font-family: Arial, sans-serif;
-  align-items: flex-start;
+  height: 492px; /* Match the height of the background image */
+  background-image: url("your-background-image.jpg"); /* Replace with your actual image path */
+  background-size: cover; /* Make the image cover the entire container */
+  background-position: center; /* Center the image */
 }
 
 /* Label */
@@ -95,20 +115,21 @@
   border: 2px solid rgb(52, 5, 152);
   outline: none;
   border-radius: 4px;
-  background-color: rgb(239, 234, 234);
+  background-color: rgba(239, 234, 234, 0.7); /* Set opacity initially to 70% */
   color: rgb(52, 5, 152);
   font-family: "Arial", sans-serif;
   font-size: 14px;
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition for opacity */
 }
 
 .search-input.secondary:hover,
 .search-input.secondary:focus {
-  border-color: rgb(52, 5, 152);
-  background-color: rgb(150, 150, 150); /* Optional: light gray on hover */
+  opacity: 1; /* Fully opaque on hover or focus */
+  background-color: rgb(239, 234, 234); /* Reset background-color to fully opaque */
 }
 
 .search-input.secondary::placeholder {
-  color: rgb(52, 5, 152);
+  color: rgba(52, 5, 152, 0.8); /* Placeholder text slightly transparent */
 }
 
 /* Button */
@@ -125,13 +146,29 @@
   border-radius: 4px;
 }
 
-.search-button.secondary:hover {
-  opacity: 0.9;
-  background-color: rgb(150, 150, 150);
+/* Top-right button container */
+.top-right-button-container {
+  position: absolute; /* Position the button inside the container */
+  top: 10px; /* Small margin from the top */
+  right: 10px; /* Small margin from the right */
 }
 
-.search-button.secondary:active {
-  background-color: rgb(150, 150, 150);
-  color: white;
-  font-weight: bold;
+/* Top-right button */
+.top-right-button {
+  height: 40px; /* Same as the Search button */
+  padding: 0 15px; /* Same horizontal padding as the Search button */
+  font-family: "Trebuchet MS", sans-serif; /* Same font */
+  font-size: 14px; /* Same font size */
+  background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent white */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 3px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  outline: none;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.top-right-button:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque white background */
+  color: red; /* Red text on hover */
 }

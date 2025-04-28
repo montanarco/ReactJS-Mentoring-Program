@@ -1,0 +1,34 @@
+/* Parent container (layout for GenreSelect and SortControl) */
+.container {
+    display: flex;
+    justify-content: space-between; /* Ensure proper spacing between the two components */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%; /* Full width of the parent */
+    gap: 1em; /* Optional: Adds spacing between the two components */
+    max-width: 1200px; /* Optional: Set a maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+  /* Child container for GenreSelect (60% of width) */
+  .container .genre-select {
+    flex: 0 0 85%; /* Takes up 60% of the width */
+    max-width: 85%; /* Ensure the maximum width doesn't exceed 60% */
+  }
+  
+  /* Child container for SortControl (40% of width) */
+  .container .sort-control {
+    flex: 0 0 15%; /* Takes up 40% of the width */
+    max-width: 15%; /* Ensure the maximum width doesn't exceed 40% */
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack components vertically */
+    }
+  
+    .container .genre-select,
+    .container .sort-control {
+      max-width: 100%; /* Expand to use full width */
+      flex: 0 0 100%;
+    }
+  }

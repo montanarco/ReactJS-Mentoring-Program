@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import FormModal from "../components/FormModal/FormModal";
-import MovieForm from "../components/MovieForm/MovieForm";
+import MovieForm, { Movie } from "../components/MovieForm/MovieForm";
 import Dialog from "../components/Dialog/Dialog";
 import { Button } from "./Button";
 
@@ -19,15 +19,15 @@ export const AddMovie = () => {
         setFormOpen(true);
     };
 
-    const successOpen = () => {
+    /*const successOpen = () => {
         setSuccessDialogOpen(false);
-    };
+    };*/
 
     const successClose = () => {
         setSuccessDialogOpen(false);
     };
 
-    const handleFormSubmit = (movie: any) => {
+    const handleFormSubmit = (movie: Movie) => {
         setFormOpen(false);
         setSuccessDialogOpen(true);
         console.log("Submitted movie:", movie);

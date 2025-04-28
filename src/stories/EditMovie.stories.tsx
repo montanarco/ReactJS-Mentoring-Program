@@ -37,7 +37,7 @@ export const EditMovie = () => {
         setSuccessDialogOpen(false);
     };
 
-    const handleFormSubmit = (movie: any) => {
+    const handleFormSubmit = (movie: Movie) => {
         setFormOpen(false);
         setSuccessDialogOpen(true);
         console.log("Edited movie:", movie);

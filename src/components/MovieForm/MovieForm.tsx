@@ -14,12 +14,17 @@ export interface Movie {
 
 export interface MovieFormProps {
     movie: Movie | null;
-    onSubmit: (movie: Movie | null) => void;
+    onSubmit: (movie: Movie) => void;
     onCancel: () => void;
     variant?: "primary" | "secondary";
 }
 
 const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, variant = "primary" }) => {
+    const availableGenres: string[] = [
+        'Action', 'Comedy', 'Drama', 'Horror', 'Science Fiction', 'Thriller',
+        'Western', 'Animation', 'Mystery', 'Romance', 'Adventure', 'Fantasy',
+        'Documentary', 'Family', 'War', 'History', 'Crime'
+    ];
     const [formData, setFormData] = useState<Movie>(
         movie || {
             title: "",
@@ -44,6 +49,23 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onSubmit(formData);
+    };
+
+    const handleGenreChange = (e: { target: { value: any; checked: any; }; }) => {
+        const { value, checked } = e.target;
+
+        if (checked) {
+            setFormData((prevData) => ({
+                ...prevData,
+                genres: [...prevData.genres, value]
+            }));
+        } else {
+            setFormData((prevData) => ({
+                ...prevData,
+                genres: prevData.genres.filter((genre) => genre !== value)
+            }));
+        }
+        //console.log("Selected genres:", formData.genres);
     };
 
     const buttonClasses = variant === "primary" ? "button-primary" : "button-secondary";
@@ -77,35 +99,40 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                                 required
                             />
                         </div>
+
                         <div className="form-field">
-                            <label htmlFor="genres">Genres</label>
-                            <select
-                                id="genres"
-                                name="genres"
-                                value={formData.genres[0] || ""} // Use the first genre or empty string
-                                onChange={handleChange}
-                            >
-                                <option value="">Select one genre</option> {/* Placeholder option */}
-                                <option value="drama">Drama</option>
-                                <option value="action">Action</option>
-                                <option value="comedy">Comedy</option>
-                                <option value="horror">Horror</option>
-                            </select>
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="director">Director</label>
-                            <input
-                                type="text"
-                                id="director"
-                                name="director"
-                                placeholder="Enter director name"
-                                value={formData.director}
-                                onChange={handleChange}
-                                required
-                            />
+                        <label htmlFor="genres">Genres</label>
+                            <div className="scroll-box">
+                                
+                                <div id="genres">
+                                    {/* Checkbox Options */}
+                                    {availableGenres.map((genre) => (
+                                        <div className="checkbox-container" key={genre}>
+                                        <label key={genre}>{genre} </label>
+                                        <input
+                                                type="checkbox"
+                                                value={genre}
+                                                checked={formData.genres.includes(genre)}
+                                                onChange={handleGenreChange}
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="form-field">
+                                <label htmlFor="director">Director</label>
+                                <input
+                                    type="text"
+                                    id="director"
+                                    name="director"
+                                    placeholder="Enter director name"
+                                    value={formData.director}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
                         </div>
                     </div>
-
                     <div className="form-column">
                         <div className="form-field">
                             <label htmlFor="releaseYear">Release Year</label>
