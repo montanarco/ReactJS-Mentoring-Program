@@ -65,17 +65,17 @@
   } 
   
   select:focus {
-    border-color: #f65261; /* Highlight border in red */
-    outline: none; /* Remove the default browser outline */
-    box-shadow: 0 0 4px #f65261; /* Optional: Add a subtle red glow */
+    border-color: #f65261; 
+    outline: none; 
+    box-shadow: 0 0 4px #f65261; 
   }
 
     input:focus,
     textarea:focus,
     select:focus {
-    border-color: #f65261; /* Highlight border in red */
-    outline: none; /* Remove the default browser outline */
-    box-shadow: 0 0 4px #f65261; /* Optional: Add a subtle red glow */
+    border-color: #f65261; 
+    outline: none; 
+    box-shadow: 0 0 4px #f65261; 
   }
   
 
@@ -139,23 +139,23 @@
   /* Responsive */
   @media (max-width: 768px) {
     .form-columns {
-      flex-direction: column; /* Stacks the columns on smaller screens */
+      flex-direction: column; 
     }
   }
 
   .scroll-box {
-    border: 1px solid #ccc; /* A subtle border for the box */
-    border-radius: 6px; /* Rounded corners for aesthetic */
-    padding: 16px; /* Give some padding inside the box */
-    height: 150px; /* Set the fixed height of the box */
-    overflow-y: scroll; /* Enable vertical scrolling when needed */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    padding: 16px; 
+    height: 150px; 
+    overflow-y: scroll; 
+    overflow-x: hidden;
   }
 
   #genres {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    gap: 10px; /* Add space between items */
+    flex-direction: column; 
+    gap: 10px; 
   }
   
   .checkbox-container {
@@ -170,13 +170,18 @@
   .checkbox-container label {
     margin: 0;
     font-weight: normal;
-    width: 75px; /* Allow label to take its natural width */
+    width: 75px; 
   }
   
   .checkbox-label {
-    width: 100px; /* Fixed width for labels (optional, ensures alignment) */
-    margin-right: 8px; /* Add spacing between label and checkbox */
-    text-align: left; /* Ensure text aligns to the left */
+    width: 100px; 
+    margin-right: 8px; 
+    text-align: left; 
   }
   
-  
+  /* Error Styles */
+.error {
+  color: #f65261;
+  font-size: 12px;
+  margin-top: 5px;
+}

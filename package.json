@@ -19,6 +19,7 @@
     "focus-trap-react": "^11.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.56.1",
     "react-router-dom": "^7.3.0",
     "rollup": "^4.37.0"
   },

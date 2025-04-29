@@ -4,7 +4,6 @@ import SortControl from '../components/SortControl/SortControl';
 import MovieGrid from '../components/MovieGrid/MovieGrid';
 import { Movie } from '../components/MovieForm/MovieForm';
 import useFetch from '../hooks/useFetch';
-import transformMovieData from '../hooks/transformMovieData';
 import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import './MovieListPage.css';
 
@@ -13,6 +12,9 @@ const URL_BASE = import.meta.env.MOVIE_API_BASE_URL || 'http://localhost:4000/mo
 export type MovieListContextType = {
     updateSearchQuery: (searchWord: string) => void;
     searchQuery: string;
+    handleAddMovie: () => void;
+    handleCancel: () => void;
+    submitMovie: (movie: Movie) => void;
   };
 
 export default function MovieListPage() {
@@ -107,8 +109,7 @@ export default function MovieListPage() {
     // Update the movies list and calculate total pages when data changes
     useEffect(() => {
         if (data?.data) {
-            const transformedMovies = transformMovieData(data.data);
-            setMoviesList(transformedMovies);
+            setMoviesList(data.data);
             setTotalPages(Math.ceil(data.totalAmount / 9)); // Calculate total pages based on totalAmount from API
         }
     }, [data]);
@@ -143,11 +144,25 @@ export default function MovieListPage() {
         updateSearchParams(searchQuery, activeGenre || '', sortCriteria, pageParam);
     };
 
+    const handleAddMovie = () => {
+        navigate('/movie-list-page/new', { replace: false });
+    };
+
+    const handleCancel = () => {
+        console.log('Cancel button clicked');
+        navigate('/movie-list-page', { replace: false });
+    };
+
+    const submitMovie = (movie: Movie) => {
+        console.log("Movie submitted:", movie);
+        
+    };
+
 
     return (
         <>
             <h3>Movie List</h3>
-            <Outlet context={{ updateSearchQuery, searchQuery }} />
+            <Outlet context={{ updateSearchQuery, searchQuery, handleAddMovie, handleCancel, submitMovie }} />
             <div>
                 <div className="container">
                     <div className="genre-select">

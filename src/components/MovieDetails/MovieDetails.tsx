@@ -1,7 +1,8 @@
 import React from "react";
 import "./MovieDetails.css";
 import { Movie } from "../MovieForm/MovieForm";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigate, useOutletContext } from "react-router-dom";
+import { MovieListContextType } from "../../pages/MovieListPage";
 
 interface MovieDetailsProps {
   movieInp?: Movie | null;
@@ -13,6 +14,8 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movieInp, OnCloseMovie }) =
   const movie = useLoaderData() as Movie || movieInp;
   const navigate = useNavigate();
 
+  const { handleCancel } = useOutletContext<MovieListContextType>();
+
   const handleCloseMovie = () => {
     if (OnCloseMovie) {
       OnCloseMovie();
@@ -22,20 +25,20 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movieInp, OnCloseMovie }) =
   }
 
   const {
-    imageUrl,
+    poster_path,
     title,
-    releaseYear,
-    rating,
-    duration,
+    release_date,
+    vote_average,
+    runtime,
     genres,
-    description,
+    overview,
   } = movie;
 
   return (
     <div className="movie-details-container">
-      {/* Left side: Movie poster */}
+      <Outlet context={{ handleCancel }} />
       <div className="movie-poster">
-        <img src={imageUrl} alt={`${title} poster`} className="poster-image" />
+        <img src={poster_path} alt={`${title} poster`} className="poster-image" />
       </div>
 
       {/* Right side: Movie info */}
@@ -44,7 +47,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movieInp, OnCloseMovie }) =
         <div className="movie-header">
           <h1 className="movie-title">{title}</h1>
           <div className="movie-rating">
-            <span className="rating-circle">{rating}</span>
+            <span className="rating-circle">{vote_average}</span>
           </div>
           <button id="movie-info-close" className="magnify-button" onClick={handleCloseMovie}>
             <i className="material-icons">search</i>
@@ -64,14 +67,14 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movieInp, OnCloseMovie }) =
 
         {/* Release Year & Duration */}
         <div className="movie-metadata">
-          <span className="release-year">{releaseYear}</span>
-          <span className="movie-duration">{duration}</span>
+          <span className="release-year">{release_date}</span>
+          <span className="movie-duration">{runtime}</span>
         </div>
 
         {/* Description */}
         <div className="movie-description">
-          <h3>Description:</h3>
-          <p>{description}</p>
+          <h3>Overview:</h3>
+          <p>{overview}</p>
         </div>
       </div>
     </div>
