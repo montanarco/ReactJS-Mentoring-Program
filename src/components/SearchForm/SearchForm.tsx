@@ -1,29 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchForm.css";
+import { useOutletContext } from "react-router-dom";
+import { MovieListContextType } from "../../pages/MovieListPage";
 
 interface SearchFormProps {
   searchCriteria: string;
-  searchFunction: (searchCriteria: string) => void;
-  addMovieFunction: () => void;
+  addMovieFunction?: () => void;
   placeholder?: string;
   variant?: "primary" | "secondary";
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({
   searchCriteria,
-  searchFunction,
-  addMovieFunction,
+  addMovieFunction  = () => {console.log("Add Movie clicked");},
   placeholder = "Search...",
   variant = "primary",
 }) => {
   const [searchWord, setSearchWord] = useState<string>(searchCriteria || "");
+  // Access `updateSearchQuery` from the parent context
+  const { updateSearchQuery, searchQuery } = useOutletContext<MovieListContextType>();
+
+
+  useEffect(() => {
+    setSearchWord(searchCriteria);
+  }, [searchCriteria]);
+
+  useEffect(() => {
+    setSearchWord(searchQuery);
+  }, [searchQuery]); 
+
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(event.target.value);
   };
 
+  // Handle form submission (when user clicks search or presses Enter)
   const handleSubmit = () => {
-    searchFunction(searchWord);
+      updateSearchQuery(searchWord); 
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -53,13 +66,8 @@ const SearchForm: React.FC<SearchFormProps> = ({
           value={searchWord}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          onFocus={handleSubmit}
         />
-        <button
-          type="submit"
-          className={buttonClass}
-          onClick={handleSubmit}
-        >
+        <button type="submit" className={buttonClass} onClick={handleSubmit}>
           Search
         </button>
       </div>
