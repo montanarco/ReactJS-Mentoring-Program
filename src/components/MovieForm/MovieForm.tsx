@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import "./MovieForm.css";
 
 export interface Movie {
-    id: number;
-    title: string;
-    releaseYear: number;
-    imageUrl: string;
-    rating: number;
+    id: number | undefined;
     genres: string[];
-    duration: string;
-    director: string;
-    description: string;
+    title: string;
+    tagline: string;
+    vote_average: string;
+    vote_count: string;
+    release_date: string;
+    poster_path: string;
+    overview: string;
+    budget: string;
+    revenue: string;
+    runtime: string;
 }
 
 export interface MovieFormProps {
@@ -30,13 +33,16 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
         movie || {
             id: 0,
             title: "",
-            releaseYear: new Date().getFullYear(),
-            imageUrl: "",
-            rating: 0,
             genres: [],
-            duration: "",
-            director: "",
-            description: "",
+            tagline: "",
+            vote_average: "",
+            vote_count: "",
+            release_date: new Date().toISOString().split("T")[0],
+            poster_path: "",
+            overview: "",
+            budget: "",
+            revenue: "",
+            runtime: "",
         }
     );
 
@@ -96,22 +102,22 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                                 id="imageUrl"
                                 name="imageUrl"
                                 placeholder="Enter image URL"
-                                value={formData.imageUrl}
+                                value={formData.poster_path}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
 
                         <div className="form-field">
-                        <label htmlFor="genres">Genres</label>
+                            <label htmlFor="genres">Genres</label>
                             <div className="scroll-box">
-                                
+
                                 <div id="genres">
                                     {/* Checkbox Options */}
                                     {availableGenres.map((genre) => (
                                         <div className="checkbox-container" key={genre}>
-                                        <label key={genre}>{genre} </label>
-                                        <input
+                                            <label key={genre}>{genre} </label>
+                                            <input
                                                 type="checkbox"
                                                 value={genre}
                                                 checked={formData.genres.includes(genre)}
@@ -122,13 +128,13 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                                 </div>
                             </div>
                             <div className="form-field">
-                                <label htmlFor="director">Director</label>
+                                <label htmlFor="budget">Budget</label>
                                 <input
                                     type="text"
-                                    id="director"
-                                    name="director"
-                                    placeholder="Enter director name"
-                                    value={formData.director}
+                                    id="budget"
+                                    name="budget"
+                                    placeholder="Enter budget "
+                                    value={formData.budget}
                                     onChange={handleChange}
                                     required
                                 />
@@ -143,7 +149,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                                 id="releaseYear"
                                 name="releaseYear"
                                 placeholder="Enter release year"
-                                value={formData.releaseYear}
+                                value={formData.release_date}
                                 onChange={handleChange}
                             />
                         </div>
@@ -154,7 +160,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                                 id="rating"
                                 name="rating"
                                 placeholder="Enter movie rating"
-                                value={formData.rating}
+                                value={formData.vote_average}
                                 onChange={handleChange}
                             />
                         </div>
@@ -165,7 +171,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                                 id="duration"
                                 name="duration"
                                 placeholder="Enter runtime in minutes"
-                                value={formData.duration}
+                                value={formData.runtime}
                                 onChange={handleChange}
                             />
                         </div>
@@ -178,7 +184,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel, varian
                         id="description"
                         name="description"
                         placeholder="Enter movie description"
-                        value={formData.description}
+                        value={formData.overview}
                         onChange={handleChange}
                     ></textarea>
                 </div>

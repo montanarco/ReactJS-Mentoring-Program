@@ -1,0 +1,4 @@
+We chose to use React Hook Form over other libraries because we ask Chat GPT to make a comparison analisys and acording to our use case 
+MoveForm: actions add and edit Movies and it give us this reasons:
+
+* I recommend using React Hook Form for this project. It is lightweight, has minimal boilerplate, and is optimized for performance with built-in hooks that make managing form state and validation intuitive. Unlike Formik, React Hook Form integrates seamlessly with React's uncontrolled components, leading to faster re-renders. Its API is simple yet powerful, and it offers better support for granular validations and real-time form feedback. For a lazy developer, the reduced mental overhead and fewer lines of code required to achieve robust forms make this the ideal choice. You’ll also benefit from its modern TypeScript support and flexibility when dealing with dynamic fields like genres.

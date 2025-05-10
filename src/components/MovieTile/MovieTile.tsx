@@ -33,7 +33,7 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick, onEdit, onDelete 
   return (
     <div className="movie-tile" >
       <div className="movie-image-wrapper">
-        <img className="movie-image" src={movie.imageUrl} alt={movie.title} />
+        <img className="movie-image" src={movie.poster_path} alt={movie.title} />
         <button className="menu-button" onClick={toggleContextMenu}>
           ⋮
         </button>
@@ -53,8 +53,8 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick, onEdit, onDelete 
         <div className="movie-meta">
           <span className="movie-genres">{movie.genres.join(", ")}</span>
           <div className="movie-right-meta">
-            <span className="movie-director">{movie.director}</span>
-            <span className="movie-year">{movie.releaseYear}</span>
+            <span className="movie-director">{movie.vote_count}</span>
+            <span className="movie-year">{movie.release_date}</span>
           </div>
         </div>
       </div>
