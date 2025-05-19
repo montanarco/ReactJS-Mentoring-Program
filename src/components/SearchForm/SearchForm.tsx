@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SearchForm.css";
-import { useOutletContext } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { MovieListContextType } from "../../pages/MovieListPage";
 
 interface SearchFormProps {
@@ -12,13 +12,12 @@ interface SearchFormProps {
 
 const SearchForm: React.FC<SearchFormProps> = ({
   searchCriteria,
-  addMovieFunction  = () => {console.log("Add Movie clicked");},
   placeholder = "Search...",
   variant = "primary",
 }) => {
   const [searchWord, setSearchWord] = useState<string>(searchCriteria || "");
   // Access `updateSearchQuery` from the parent context
-  const { updateSearchQuery, searchQuery } = useOutletContext<MovieListContextType>();
+  const { updateSearchQuery, searchQuery, handleAddMovie, handleCancel, submitMovie } = useOutletContext<MovieListContextType>();
 
 
   useEffect(() => {
@@ -51,8 +50,9 @@ const SearchForm: React.FC<SearchFormProps> = ({
 
   return (
     <div className={containerClass}>
+      <Outlet  context={{ handleAddMovie, submitMovie, handleCancel}} />
       <div className="top-right-button-container">
-        <button className="top-right-button" onClick={addMovieFunction}>
+        <button className="top-right-button" onClick={handleAddMovie}>
           Add Movie
         </button>
       </div>

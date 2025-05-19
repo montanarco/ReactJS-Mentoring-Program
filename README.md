@@ -12,6 +12,9 @@ Currently, two official plugins are available:
 - React testing Library: https://testing-library.com/docs/react-testing-library/intro/
 - Cypress: https://docs.cypress.io/app/end-to-end-testing/writing-your-first-end-to-end-test
 - Storybook: https://storybook.js.org/docs
+- eslint: https://eslint.org/docs/latest/use/getting-started
+- react router: https://reactrouter.com/
+- react hook form: https://react-hook-form.com/
 
 ## Expanding the ESLint configuration
 

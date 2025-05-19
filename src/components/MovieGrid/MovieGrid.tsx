@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MovieTile from "../MovieTile/MovieTile";
 import { Movie } from "../MovieForm/MovieForm";
 import "./MovieGrid.css";
+import { useNavigate } from "react-router-dom";
 
 interface MovieGridProps {
   movies: Array<Movie>;
@@ -15,11 +16,21 @@ interface MovieGridProps {
 const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelected, columns, itemsPerPageOptions, onPageChange }) => {
   const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[0] || 10);
 
+  const navigate = useNavigate();
+
   const handlePageChange = (direction: "prev" | "next") => {
     if (onPageChange) {
       onPageChange(direction);
     }
+  };
 
+  const handleEdit = (movieId: number) => {
+    console.log("Edit movie", movieId);
+    navigate(`/movie-list-page/${movieId}/edit`, { replace: false });
+  };
+
+  const handleDelete = (movieId: number) => {
+    console.log("Delete movie", movieId);
   };
 
   const handleItemsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -32,7 +43,7 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, currentPage, onMovieSelec
     rows.push(
       <div className="movie-grid-row" key={`row-${i}`}>
         {rowMovies.map((movie, index) => (
-          <MovieTile key={`movie-${index}`} movie={movie} onClick={() => onMovieSelected(movie)} />
+          <MovieTile key={`movie-${index}`} movie={movie} onClick={() => onMovieSelected(movie)} onEdit={() => handleEdit(movie.id)} onDelete={()=>handleDelete(movie.id)}/>
         ))}
       </div>
     );
